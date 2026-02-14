@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-white text-text-body antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    letter-spacing: -0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-text-heading font-bold;
+    letter-spacing: -0.025em;
+  }
+  ::selection {
+    @apply bg-brand-100 text-brand-900;
+  }
+}
+
+@layer components {
+  .container-main {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Primary CTA - Green institutional button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-brand px-6 py-3
+           font-semibold text-white shadow-sm
+           transition-all duration-200
+           hover:bg-brand-dark hover:shadow-md hover:-translate-y-px
+           active:translate-y-0 active:shadow-sm;
+  }
+
+  /* Secondary button - outlined */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3
+           font-semibold text-text-heading
+           transition-all duration-200
+           hover:border-brand hover:text-brand hover:bg-brand-50 hover:-translate-y-px
+           active:translate-y-0;
+  }
+
+  /* Ghost button for dark backgrounds */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3
+           font-semibold text-white backdrop-blur-sm
+           transition-all duration-200
+           hover:bg-white/10 hover:border-white/30 hover:-translate-y-px
+           active:translate-y-0;
+  }
+
+  /* Institutional card style */
+  .card {
+    @apply rounded-xl border border-gray-200/80 bg-white p-6 shadow-card
+           transition-all duration-300
+           hover:shadow-card-hover hover:border-gray-300/80 hover:-translate-y-px;
+  }
+
+  /* Premium card variant */
+  .card-premium {
+    @apply rounded-xl border border-brand/10 bg-gradient-to-br from-white to-brand-50/30 p-6 shadow-card
+           transition-all duration-300
+           hover:shadow-card-hover hover:border-brand/20 hover:-translate-y-px;
+  }
+
+  /* Section typography */
+  .section-heading {
+    @apply text-center text-3xl font-extrabold text-text-heading sm:text-4xl;
+    letter-spacing: -0.03em;
+  }
+
+  .section-subheading {
+    @apply mx-auto mt-4 max-w-2xl text-center text-base text-text-body sm:text-lg;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    @apply mb-3 text-center text-xs font-semibold uppercase tracking-[0.2em] text-brand;
+  }
+
+  /* Hero dark section */
+  .gradient-hero {
+    background: linear-gradient(135deg, #0C1821 0%, #122B3A 35%, #0C1821 70%, #060D13 100%);
+  }
+
+  .hero-glow {
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,133,111,0.08) 0%, transparent 60%);
+  }
+
+  /* Stat number styling */
+  .stat-number {
+    @apply text-4xl font-extrabold text-text-heading sm:text-5xl;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Table professional style */
+  .table-institutional {
+    @apply w-full text-sm;
+  }
+  .table-institutional thead tr {
+    @apply border-b-2 border-gray-200;
+  }
+  .table-institutional th {
+    @apply py-3 px-4 text-left text-xs font-semibold uppercase tracking-wider text-text-muted;
+  }
+  .table-institutional tbody tr {
+    @apply border-b border-gray-100 transition-colors duration-150 hover:bg-gray-50/50;
+  }
+  .table-institutional td {
+    @apply py-4 px-4;
+  }
+
+  /* Divider */
+  .divider {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+  .badge-green {
+    @apply badge bg-brand-50 text-brand;
+  }
+  .badge-gray {
+    @apply badge bg-gray-100 text-text-body;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out both;
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out both;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply rounded-full bg-gray-200 hover:bg-gray-300; }
+
+/* Focus ring */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-brand rounded-md;
+}
+
+/* Smooth number transitions */
+@supports (font-variant-numeric: tabular-nums) {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}

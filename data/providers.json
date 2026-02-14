@@ -1,0 +1,3281 @@
+{
+  "meta": {
+    "version": "1.0",
+    "lastUpdated": "2026-02-12",
+    "scoringVersion": "1.0",
+    "totalProviders": 36,
+    "notes": "Fees and details should be verified directly with each provider before publishing. Data sourced from public websites, documentation, and third-party reviews as of Feb 2026."
+  },
+  "scoringWeights": {
+    "security": 0.2,
+    "insurance": 0.15,
+    "regulatory": 0.15,
+    "feeTransparency": 0.1,
+    "trackRecord": 0.15,
+    "withdrawalFlexibility": 0.1,
+    "reportingAudit": 0.1,
+    "counterpartyDiversification": 0.05
+  },
+  "custodyTypes": [
+    {
+      "id": "multi-institution",
+      "name": "Multi-Institution Custody",
+      "shortDescription": "Bitcoin keys and assets distributed across multiple independent regulated custodians, eliminating single points of failure.",
+      "longDescription": "Multi-institution custody distributes your Bitcoin across multiple independent, regulated custodians rather than trusting a single entity. If one custodian is compromised, hacked, or fails, your assets remain safe with the others. This model emerged after high-profile failures like FTX and Celsius demonstrated the catastrophic risk of single-custodian dependence.",
+      "bestFor": [
+        "Family offices",
+        "Institutions",
+        "HNW individuals",
+        "Anyone who experienced FTX/Celsius losses"
+      ],
+      "pros": [
+        "Eliminates single point of failure",
+        "Multiple layers of regulatory oversight",
+        "Institutional-grade insurance across custodians",
+        "No single entity can freeze all assets"
+      ],
+      "cons": [
+        "Higher minimum AUM typically required",
+        "Slightly more complex onboarding",
+        "Fewer providers in this category",
+        "May have higher all-in fees than single custodian"
+      ]
+    },
+    {
+      "id": "self-custody",
+      "name": "Self-Custody / Multisig",
+      "shortDescription": "You hold your own private keys using hardware wallets and multisignature setups. Maximum sovereignty, maximum responsibility.",
+      "longDescription": "Self-custody means you control your own private keys — 'not your keys, not your coins.' Modern self-custody solutions use multisignature (multisig) technology where multiple keys are required to move funds, reducing the risk of single key loss. Collaborative custody models add a trusted third party who holds one key as a backup.",
+      "bestFor": [
+        "Technically proficient individuals",
+        "Privacy-focused holders",
+        "Sovereign individuals",
+        "Long-term HODLers"
+      ],
+      "pros": [
+        "Full control over your Bitcoin",
+        "No counterparty risk",
+        "Maximum privacy",
+        "No custodian fees on holdings"
+      ],
+      "cons": [
+        "You are solely responsible for security",
+        "Key loss = permanent fund loss",
+        "Inheritance planning is complex",
+        "No insurance coverage typically"
+      ]
+    },
+    {
+      "id": "exchange-custody",
+      "name": "Exchange Custody",
+      "shortDescription": "Bitcoin held on a cryptocurrency exchange. Convenient for trading but introduces significant counterparty risk.",
+      "longDescription": "Exchange custody is the most common form — you buy Bitcoin on an exchange and leave it there. The exchange controls your private keys. This is convenient for active traders but introduces counterparty risk: if the exchange is hacked, goes bankrupt, or freezes withdrawals, you may lose access to your funds. FTX, Mt. Gox, and Celsius are cautionary examples.",
+      "bestFor": [
+        "Active traders",
+        "Small holdings",
+        "Beginners who plan to self-custody later"
+      ],
+      "pros": [
+        "Easiest to use",
+        "Instant trading",
+        "Low or no custody fees",
+        "Mobile app convenience"
+      ],
+      "cons": [
+        "Counterparty risk (FTX, Mt. Gox)",
+        "Exchange controls your keys",
+        "Potential withdrawal freezes",
+        "Regulatory seizure risk"
+      ]
+    },
+    {
+      "id": "qualified-custodian",
+      "name": "Qualified Custodian",
+      "shortDescription": "Regulated financial institutions that meet SEC and state requirements for safeguarding client assets, including digital assets.",
+      "longDescription": "Qualified custodians are regulated financial institutions meeting specific legal requirements for safeguarding client assets. In the US, the SEC requires registered investment advisers to use qualified custodians. These institutions demonstrate robust security controls, adequate capitalization, and regulatory compliance. They serve as the institutional-grade single-custodian option.",
+      "bestFor": [
+        "RIAs and financial advisors",
+        "Funds and fiduciaries",
+        "Institutions with regulatory requirements",
+        "ETF issuers"
+      ],
+      "pros": [
+        "Regulatory compliance built-in",
+        "Institutional-grade security",
+        "Insurance coverage",
+        "Audit trails and reporting"
+      ],
+      "cons": [
+        "Single point of failure",
+        "High minimums",
+        "Complex onboarding",
+        "Custodian controls your keys"
+      ]
+    },
+    {
+      "id": "cold-storage",
+      "name": "Cold Storage / Hardware",
+      "shortDescription": "Bitcoin stored on hardware devices disconnected from the internet. Air-gapped security for long-term holdings.",
+      "longDescription": "Cold storage keeps your Bitcoin's private keys on devices that never connect to the internet, making them immune to remote hacking. Hardware wallets like Ledger and Trezor are the most common consumer cold storage solutions. Institutional cold storage uses HSMs (Hardware Security Modules) in secure facilities.",
+      "bestFor": [
+        "Long-term holders",
+        "Security-conscious individuals",
+        "Anyone moving off exchanges"
+      ],
+      "pros": [
+        "Air-gapped from internet threats",
+        "Physical security",
+        "Low ongoing cost",
+        "Full ownership"
+      ],
+      "cons": [
+        "Physical device can be lost/damaged",
+        "Less convenient for frequent transactions",
+        "Requires technical knowledge",
+        "No recovery if seed phrase lost"
+      ]
+    },
+    {
+      "id": "collaborative-custody",
+      "name": "Collaborative Custody",
+      "shortDescription": "Multisig setup where you hold some keys while a trusted provider holds others. Combines self-custody sovereignty with professional backup.",
+      "longDescription": "Collaborative custody uses multisignature technology where keys are split between you and a service provider. Typically in a 2-of-3 setup: you hold 2 keys, the provider holds 1. You can always move funds independently, but the provider can assist with recovery if you lose a key. This bridges the gap between full self-custody and third-party custody.",
+      "bestFor": [
+        "HNW individuals who want control + safety net",
+        "Families needing inheritance planning",
+        "Self-custody users who want professional backup"
+      ],
+      "pros": [
+        "You maintain control (hold majority of keys)",
+        "Professional recovery assistance",
+        "Inheritance planning support",
+        "No single entity can move your funds"
+      ],
+      "cons": [
+        "Provider still has some key access",
+        "Higher cost than pure self-custody",
+        "Still relies on one provider for the backup key",
+        "Fewer options than pure custodial solutions"
+      ]
+    },
+    {
+      "id": "etf-indirect",
+      "name": "ETF / Indirect Exposure",
+      "shortDescription": "Gain Bitcoin exposure through regulated exchange-traded funds without directly holding cryptocurrency.",
+      "longDescription": "Bitcoin ETFs allow investors to gain exposure to Bitcoin's price movements through traditional brokerage accounts. The ETF issuer purchases and custodies actual Bitcoin, while investors hold shares of the fund. This eliminates the need for crypto wallets, private keys, or direct custody concerns. Ideal for retirement accounts (IRAs, 401ks) and traditional investors who want Bitcoin allocation within existing portfolios.",
+      "bestFor": [
+        "Traditional investors",
+        "Retirement account holders",
+        "RIAs and financial advisors",
+        "Anyone wanting regulated Bitcoin exposure"
+      ],
+      "pros": [
+        "No crypto wallet or key management needed",
+        "Available in retirement accounts",
+        "SEC regulated",
+        "Maximum regulatory clarity",
+        "Familiar brokerage interface"
+      ],
+      "cons": [
+        "No direct Bitcoin ownership",
+        "Cannot withdraw actual Bitcoin",
+        "Annual expense ratio reduces returns",
+        "Tracking error possible",
+        "Dependent on ETF issuer and custodian"
+      ]
+    },
+    {
+      "id": "technology-provider",
+      "name": "Technology Provider",
+      "shortDescription": "Companies providing custody infrastructure and technology to institutions rather than direct custody services to end users.",
+      "longDescription": "Technology providers build the custody infrastructure that banks, exchanges, and financial institutions use to safeguard digital assets. They provide MPC (Multi-Party Computation) key management, governance frameworks, HSMs, and policy engines. While they don't directly custody assets, their technology underpins much of the institutional crypto custody ecosystem.",
+      "bestFor": [
+        "Banks building crypto custody",
+        "Exchanges needing custody infrastructure",
+        "Financial institutions",
+        "Enterprises entering crypto"
+      ],
+      "pros": [
+        "Institutional-grade technology",
+        "Configurable governance",
+        "Multi-asset support",
+        "White-label solutions",
+        "API-first architecture"
+      ],
+      "cons": [
+        "Not direct custody — infrastructure only",
+        "Enterprise-only pricing",
+        "Requires integration effort",
+        "Not for individual users",
+        "Regulatory burden on the institution"
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "id": "onramp",
+      "name": "Onramp",
+      "slug": "onramp",
+      "logo": "/logos/onramp.svg",
+      "website": "https://onramp.investments",
+      "founded": 2021,
+      "headquarters": "Austin, TX",
+      "custodyType": "multi-institution",
+      "custodyTypeLabel": "Multi-Institution Custody",
+      "description": "Onramp provides Multi-Institution Custody (MIC) that distributes Bitcoin across multiple independent regulated custodians. Rather than trusting a single entity, assets are spread across institutions so no single point of failure can compromise holdings.",
+      "targetAudience": [
+        "Family offices",
+        "RIAs",
+        "HNW individuals",
+        "Institutions"
+      ],
+      "aum": "$1B+",
+      "minAccount": "$100,000",
+      "supportedAssets": [
+        "Bitcoin"
+      ],
+      "keyManagement": "Multi-institution distributed custody — keys and assets spread across multiple independent regulated custodians (BitGo, Coinbase, Fidelity, etc.)",
+      "fees": {
+        "setup": "Contact for pricing",
+        "custodyAnnual": "Contact for pricing",
+        "transaction": "0.50% per trade (brokerage)",
+        "withdrawal": "Contact for pricing",
+        "notes": "Also offers Onramp Finance: lowest-cost Bitcoin brokerage at 50bps, 5% APY on cash, 1.5% cashback card"
+      },
+      "insurance": {
+        "coverage": "Aggregate coverage across multiple custodian insurance policies",
+        "carrier": "Multiple (via underlying custodians)",
+        "details": "Each underlying custodian maintains their own insurance. Combined coverage exceeds single-custodian limits."
+      },
+      "regulatory": {
+        "licenses": [
+          "State money transmitter licenses"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "Regulated through underlying custodian partnerships with qualified custodians"
+      },
+      "security": {
+        "keyManagementType": "Multi-institution distributed",
+        "coldStoragePercent": "Varies by underlying custodian",
+        "socCompliance": "Via underlying custodians (SOC 1 & SOC 2)",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Multi-Institution Custody across multiple regulated custodians",
+        "No single point of failure",
+        "Institutional-grade security and compliance",
+        "Bitcoin brokerage services (Onramp Finance)",
+        "5% APY on cash balances",
+        "1.5% cashback card",
+        "White-glove onboarding for institutions"
+      ],
+      "scores": {
+        "security": 9.5,
+        "insurance": 9,
+        "regulatory": 8.5,
+        "feeTransparency": 7.5,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 8.5,
+        "counterpartyDiversification": 10
+      },
+      "pros": [
+        "Only provider offering true multi-institution custody — no single point of failure",
+        "Aggregated insurance coverage exceeds any single custodian",
+        "$1B+ in assets under custody demonstrates institutional trust",
+        "Integrated brokerage with lowest Bitcoin buy fees (50bps)",
+        "Cash yield (5% APY) and cashback card add value beyond custody"
+      ],
+      "cons": [
+        "$100K minimum may exclude smaller investors",
+        "Bitcoin-only (no altcoins)",
+        "Newer company (founded 2021) vs established players",
+        "Pricing not fully transparent on website — requires contact"
+      ],
+      "competitorComparisons": {
+        "bitgo": "Onramp uses BitGo as one of multiple custodians, while BitGo acts as a single custodian. Onramp adds diversification layer.",
+        "coinbase-custody": "Coinbase Custody is one institution. Onramp distributes across Coinbase AND others, eliminating single-custodian risk.",
+        "unchained": "Unchained is collaborative 2-of-3 multisig where you hold keys. Onramp is institutional multi-custodian — different model for different users."
+      }
+    },
+    {
+      "id": "bitgo",
+      "name": "BitGo",
+      "slug": "bitgo",
+      "logo": "/logos/bitgo.svg",
+      "website": "https://www.bitgo.com",
+      "founded": 2013,
+      "headquarters": "Palo Alto, CA",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "BitGo is one of the largest institutional digital asset custodians, processing approximately 20% of all global Bitcoin transactions. Offers multi-signature wallets, hot and cold storage, and serves over 1,500 institutional clients.",
+      "targetAudience": [
+        "Institutions",
+        "Exchanges",
+        "Funds",
+        "Fintechs"
+      ],
+      "aum": "$64B+ in custody",
+      "minAccount": "Contact for pricing",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "700+ tokens"
+      ],
+      "keyManagement": "Multi-signature (2-of-3) with optional MPC. Keys split between client and BitGo.",
+      "fees": {
+        "setup": "Varies by plan",
+        "custodyAnnual": "Based on AUM — tiered pricing",
+        "transaction": "Varies",
+        "withdrawal": "Network fees",
+        "notes": "Enterprise pricing available. BitGo Go for smaller clients."
+      },
+      "insurance": {
+        "coverage": "$250M policy limit",
+        "carrier": "Lloyd's of London syndicate",
+        "details": "Covers assets in hot and cold storage against theft and security breaches. Institutions should confirm per-asset limits and exclusions."
+      },
+      "regulatory": {
+        "licenses": [
+          "South Dakota Trust Charter",
+          "New York BitLicense"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "BitGo Trust Company is a qualified custodian regulated by the South Dakota Division of Banking."
+      },
+      "security": {
+        "keyManagementType": "Multi-signature + MPC",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No major incidents. Minor service disruptions reported."
+      },
+      "features": [
+        "Multi-signature wallets (2-of-3)",
+        "Hot and cold storage options",
+        "700+ token support",
+        "Policy engine for governance workflows",
+        "Staking services",
+        "DeFi and Web3 access",
+        "Portfolio and tax reporting"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 8.5,
+        "regulatory": 9,
+        "feeTransparency": 6.5,
+        "trackRecord": 9,
+        "withdrawalFlexibility": 8,
+        "reportingAudit": 8.5,
+        "counterpartyDiversification": 3
+      },
+      "pros": [
+        "Industry-leading institutional track record since 2013",
+        "$250M insurance coverage",
+        "SOC 2 Type 2 compliant",
+        "Processes ~20% of all global Bitcoin transactions",
+        "700+ token support for diversified portfolios"
+      ],
+      "cons": [
+        "Single custodian — assets concentrated with one entity",
+        "Pricing not transparent (requires sales contact)",
+        "Complex onboarding for smaller clients",
+        "MPC key management adds complexity"
+      ]
+    },
+    {
+      "id": "coinbase-custody",
+      "name": "Coinbase Custody",
+      "slug": "coinbase-custody",
+      "logo": "/logos/coinbase.svg",
+      "website": "https://custody.coinbase.com",
+      "founded": 2018,
+      "headquarters": "San Francisco, CA (Coinbase Global)",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Coinbase Custody is the institutional custody arm of Coinbase, the largest US cryptocurrency exchange. It provides cold storage custody for institutional investors and serves as the custodian for several major Bitcoin ETFs including BlackRock's iShares Bitcoin Trust.",
+      "targetAudience": [
+        "ETF issuers",
+        "Hedge funds",
+        "Asset managers",
+        "Institutions"
+      ],
+      "aum": "$300B+ (Coinbase platform total)",
+      "minAccount": "$500,000",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "400+ assets"
+      ],
+      "keyManagement": "Proprietary cold storage with multi-layer security. Air-gapped signing infrastructure.",
+      "fees": {
+        "setup": "$10,000 one-time",
+        "custodyAnnual": "0.50% AUM (50bps) — tiered for large balances",
+        "transaction": "Varies",
+        "withdrawal": "Network fees + processing fee",
+        "notes": "Pricing negotiable for large institutional clients. ETF custodian arrangements have separate terms."
+      },
+      "insurance": {
+        "coverage": "Significant coverage (exact amount not publicly disclosed)",
+        "carrier": "Multiple carriers",
+        "details": "Crime insurance covering theft from breach of physical or cyber security. Coinbase publicly listed — financial transparency via SEC filings."
+      },
+      "regulatory": {
+        "licenses": [
+          "New York BitLicense",
+          "NY Trust Charter (Coinbase Custody Trust Company)"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "Coinbase Custody Trust Company, LLC is a fiduciary under New York State Banking Law. Publicly traded (COIN) providing financial transparency."
+      },
+      "security": {
+        "keyManagementType": "Proprietary cold storage",
+        "coldStoragePercent": "98%+ cold storage",
+        "socCompliance": "SOC 1 Type 2, SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No custody-specific breaches. Coinbase exchange has had minor incidents."
+      },
+      "features": [
+        "Cold storage for 400+ assets",
+        "Staking (governance participation from cold storage)",
+        "Dedicated account management",
+        "Regulatory reporting and compliance tools",
+        "Integration with Coinbase Prime for trading",
+        "Custodian for major Bitcoin ETFs"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 8,
+        "regulatory": 9.5,
+        "feeTransparency": 7,
+        "trackRecord": 8.5,
+        "withdrawalFlexibility": 7.5,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Custodian for BlackRock, Fidelity, and other major ETFs — ultimate institutional validation",
+        "Publicly traded company — financial transparency via SEC filings",
+        "SOC 1 & SOC 2 Type 2 compliant",
+        "Deep regulatory track record",
+        "Integrated trading via Coinbase Prime"
+      ],
+      "cons": [
+        "Single custodian — all eggs in one basket",
+        "$500K minimum and $10K setup fee",
+        "Exchange and custody are same entity — correlated risk",
+        "Custody fees at 50bps are higher than some competitors"
+      ]
+    },
+    {
+      "id": "fidelity-digital-assets",
+      "name": "Fidelity Digital Assets",
+      "slug": "fidelity-digital-assets",
+      "logo": "/logos/fidelity.svg",
+      "website": "https://www.fidelitydigitalassets.com",
+      "founded": 2018,
+      "headquarters": "Boston, MA",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Fidelity Digital Assets is the crypto arm of Fidelity Investments, one of the world's largest asset managers ($14T+ AUM across the firm). Provides institutional custody and trading for Bitcoin and Ethereum, and custodies the Fidelity Wise Origin Bitcoin Fund (FBTC).",
+      "targetAudience": [
+        "Institutional investors",
+        "RIAs",
+        "Family offices",
+        "Pension funds"
+      ],
+      "aum": "Not publicly disclosed (Fidelity overall: $14T+)",
+      "minAccount": "Institutional only — contact for details",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum"
+      ],
+      "keyManagement": "Proprietary cold storage using HSMs in secure, geographically distributed facilities.",
+      "fees": {
+        "setup": "Contact for pricing",
+        "custodyAnnual": "Contact for pricing (competitive institutional rates)",
+        "transaction": "1% spread on Fidelity Crypto retail platform",
+        "withdrawal": "Contact for pricing",
+        "notes": "Retail Fidelity Crypto charges 1% spread. Institutional custody pricing is separate and negotiable."
+      },
+      "insurance": {
+        "coverage": "Up to $1B reported",
+        "carrier": "Major insurance carriers",
+        "details": "One of the highest insurance coverage amounts in the industry. Exact terms available to institutional clients."
+      },
+      "regulatory": {
+        "licenses": [
+          "New York State Trust Charter (Fidelity Digital Assets, National Association)"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "Fidelity Digital Assets, National Association is a national trust bank chartered by the OCC. Parent company Fidelity Investments is one of the most regulated financial institutions globally."
+      },
+      "security": {
+        "keyManagementType": "HSM-based cold storage",
+        "coldStoragePercent": "Vast majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Institutional-grade cold storage",
+        "Integration with Fidelity's broader financial ecosystem",
+        "Dedicated institutional trading desk",
+        "Fidelity Wise Origin Bitcoin Fund (FBTC) custody",
+        "24/7 operational support",
+        "Regulatory reporting"
+      ],
+      "scores": {
+        "security": 9.5,
+        "insurance": 9.5,
+        "regulatory": 10,
+        "feeTransparency": 5,
+        "trackRecord": 9,
+        "withdrawalFlexibility": 7,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Backed by Fidelity — $14T+ AUM parent company",
+        "Up to $1B insurance coverage — industry-leading",
+        "National trust bank charter (OCC regulated)",
+        "Custodian for FBTC — one of the largest Bitcoin ETFs",
+        "Unmatched institutional credibility"
+      ],
+      "cons": [
+        "Single custodian — same single-point-of-failure risk as others",
+        "Very limited asset support (BTC, ETH only for institutional custody)",
+        "Pricing completely opaque — requires institutional relationship",
+        "Retail platform charges 1% spread (high)",
+        "Institutional-only — not accessible to smaller investors"
+      ]
+    },
+    {
+      "id": "unchained",
+      "name": "Unchained",
+      "slug": "unchained",
+      "logo": "/logos/unchained.svg",
+      "website": "https://unchained.com",
+      "founded": 2016,
+      "headquarters": "Austin, TX",
+      "custodyType": "collaborative-custody",
+      "custodyTypeLabel": "Collaborative Custody",
+      "description": "Unchained provides collaborative multisig custody where clients hold 2 of 3 keys and Unchained holds 1. This means clients maintain full control — they can always move funds without Unchained's permission — while having a professional backup key holder for recovery and inheritance.",
+      "targetAudience": [
+        "HNW individuals",
+        "Families",
+        "Small institutions",
+        "Self-sovereignty advocates"
+      ],
+      "aum": "$2B+ in Bitcoin secured",
+      "minAccount": "No minimum for basic vault",
+      "supportedAssets": [
+        "Bitcoin"
+      ],
+      "keyManagement": "2-of-3 multisig. Client holds 2 keys (hardware wallets), Unchained holds 1 key. Client can always transact independently.",
+      "fees": {
+        "setup": "Free (basic) / $250 (concierge onboarding)",
+        "custodyAnnual": "$250/year (Standard) / $1,200/year (Premium)",
+        "transaction": "No transaction fees for self-managed",
+        "withdrawal": "Network fees only",
+        "notes": "Also offers Bitcoin-backed loans. IRA custody available at additional cost."
+      },
+      "insurance": {
+        "coverage": "Limited — Unchained's key is insured but client keys are client's responsibility",
+        "carrier": "Not publicly disclosed",
+        "details": "Because client holds majority of keys, insurance model is different from full-custodian solutions. Client bears primary responsibility for key security."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB registration"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "Not a qualified custodian in the SEC sense — by design, since the client holds majority of keys. This is a feature, not a bug, for self-sovereignty advocates."
+      },
+      "security": {
+        "keyManagementType": "2-of-3 collaborative multisig",
+        "coldStoragePercent": "100% (hardware wallets)",
+        "socCompliance": "N/A (client-controlled keys)",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "2-of-3 multisig vaults",
+        "Client holds majority of keys",
+        "Inheritance planning (Unchained can assist beneficiaries)",
+        "Bitcoin-backed loans",
+        "IRA accounts",
+        "Concierge onboarding with Bitcoin expert",
+        "Key replacement assistance"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 4,
+        "regulatory": 5,
+        "feeTransparency": 9.5,
+        "trackRecord": 8.5,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 6,
+        "counterpartyDiversification": 6
+      },
+      "pros": [
+        "Client always maintains control — can move funds without Unchained",
+        "Excellent for inheritance planning",
+        "Very transparent, affordable pricing ($250-1,200/year)",
+        "Bitcoin-only focus aligns with Bitcoin ethos",
+        "No minimum account balance"
+      ],
+      "cons": [
+        "Client responsible for securing their own keys",
+        "Not a qualified custodian (matters for RIAs/fiduciaries)",
+        "Limited insurance coverage",
+        "Requires hardware wallet knowledge",
+        "Only Unchained holds the backup key — still some single-provider dependence"
+      ]
+    },
+    {
+      "id": "casa",
+      "name": "Casa",
+      "slug": "casa",
+      "logo": "/logos/casa.svg",
+      "website": "https://casa.io",
+      "founded": 2018,
+      "headquarters": "Denver, CO",
+      "custodyType": "collaborative-custody",
+      "custodyTypeLabel": "Collaborative Custody",
+      "description": "Casa provides collaborative self-custody using multisig, designed for individuals and families. Founded by Bitcoin security expert Jameson Lopp. Offers 2-of-3 and 3-of-5 key setups with a focus on usability, inheritance planning, and key recovery.",
+      "targetAudience": [
+        "HNW individuals",
+        "Families",
+        "Privacy-focused holders",
+        "Non-technical Bitcoin holders"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "No minimum",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum"
+      ],
+      "keyManagement": "2-of-3 (Standard) or 3-of-5 (Premium) multisig. Casa holds 1 key, client holds rest on hardware wallets + mobile.",
+      "fees": {
+        "setup": "Included in subscription",
+        "custodyAnnual": "$30/month (Standard) / $178/month (Premium) / Custom (Diamond)",
+        "transaction": "No transaction fees",
+        "withdrawal": "Network fees only",
+        "notes": "Diamond tier includes dedicated advisor, custom security review, and Covenant inheritance protocol."
+      },
+      "insurance": {
+        "coverage": "Limited — similar to Unchained model. Client bears primary key responsibility.",
+        "carrier": "Not publicly disclosed",
+        "details": "Casa insures their own key. Client keys are client responsibility. Casa Covenant provides inheritance recovery mechanism."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB registration"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "Not a qualified custodian — self-custody model. Registered as money services business."
+      },
+      "security": {
+        "keyManagementType": "Collaborative multisig (2-of-3 or 3-of-5)",
+        "coldStoragePercent": "100% (hardware wallets)",
+        "socCompliance": "N/A",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "2-of-3 and 3-of-5 multisig options",
+        "Mobile app for easy key management",
+        "Casa Covenant inheritance protocol",
+        "Dedicated security advisors (Premium+)",
+        "Key rotation and replacement",
+        "Geographic key distribution guidance",
+        "Health check system for key verification"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 3.5,
+        "regulatory": 4.5,
+        "feeTransparency": 9,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 5,
+        "counterpartyDiversification": 6.5
+      },
+      "pros": [
+        "Best-in-class UX for self-custody — genuinely easy to use",
+        "3-of-5 multisig is one of the most secure consumer setups available",
+        "Casa Covenant solves the inheritance problem elegantly",
+        "Founded by Jameson Lopp — one of the most respected Bitcoin security researchers",
+        "No minimum balance — accessible to all"
+      ],
+      "cons": [
+        "Not a qualified custodian",
+        "Limited insurance — you're responsible for your keys",
+        "Monthly subscription model adds up over time",
+        "Supports ETH in addition to BTC (purists may dislike)",
+        "Premium tiers needed for best security features"
+      ]
+    },
+    {
+      "id": "anchorage-digital",
+      "name": "Anchorage Digital",
+      "slug": "anchorage-digital",
+      "logo": "/logos/anchorage.svg",
+      "website": "https://www.anchorage.com",
+      "founded": 2017,
+      "headquarters": "San Francisco, CA",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Anchorage Digital is the first federally chartered digital asset bank in the US, granted a national trust bank charter by the OCC. It provides institutional custody, staking, governance, and trading. Trusted by Visa, Samsung, and major institutions.",
+      "targetAudience": [
+        "Institutions",
+        "Asset managers",
+        "Protocol treasuries",
+        "Government entities"
+      ],
+      "aum": "Not publicly disclosed (serves major institutions)",
+      "minAccount": "Institutional only",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "Multiple digital assets"
+      ],
+      "keyManagement": "Proprietary HSM-based system with biometric authentication and multi-layer approval workflows.",
+      "fees": {
+        "setup": "Custom institutional pricing",
+        "custodyAnnual": "Custom",
+        "transaction": "Custom",
+        "withdrawal": "Custom",
+        "notes": "Fully custom pricing for institutional clients. No self-serve option."
+      },
+      "insurance": {
+        "coverage": "Significant coverage (not publicly disclosed)",
+        "carrier": "Major carriers",
+        "details": "As an OCC-chartered bank, subject to bank-level regulatory capital requirements."
+      },
+      "regulatory": {
+        "licenses": [
+          "OCC National Trust Bank Charter"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "First and only federally chartered crypto bank. Highest level of US regulatory approval for a digital asset custodian."
+      },
+      "security": {
+        "keyManagementType": "HSM + biometric authentication",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Federally chartered digital asset bank",
+        "Biometric authentication",
+        "Advanced governance and approval workflows",
+        "Staking from custody",
+        "DeFi access from custody",
+        "Trading and settlement"
+      ],
+      "scores": {
+        "security": 9.5,
+        "insurance": 8,
+        "regulatory": 10,
+        "feeTransparency": 4,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 7,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Only federally chartered digital asset bank — highest US regulatory status",
+        "Trusted by Visa, Samsung, and other blue-chip institutions",
+        "SOC 2 Type 2 compliant",
+        "Full suite: custody + trading + staking + DeFi",
+        "Biometric security is unique in the market"
+      ],
+      "cons": [
+        "Single custodian — all assets with one entity",
+        "Institutional only — no retail access",
+        "Completely opaque pricing",
+        "Limited information publicly available",
+        "High barrier to entry"
+      ]
+    },
+    {
+      "id": "gemini-custody",
+      "name": "Gemini Custody",
+      "slug": "gemini-custody",
+      "logo": "/logos/gemini.svg",
+      "website": "https://www.gemini.com/custody",
+      "founded": 2019,
+      "headquarters": "New York, NY",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Gemini Custody is the institutional cold storage solution from Gemini, the Winklevoss twins' cryptocurrency exchange. SOC 1 and SOC 2 Type 2 certified — the first crypto exchange to achieve both. Offers cold storage custody with insurance.",
+      "targetAudience": [
+        "Institutions",
+        "Funds",
+        "Family offices",
+        "Fiduciaries"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Contact for pricing",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "70+ assets"
+      ],
+      "keyManagement": "Proprietary cold storage system with HSMs and multi-layer security protocols.",
+      "fees": {
+        "setup": "Contact for pricing",
+        "custodyAnnual": "0.40% AUM annually (40bps) — tiered",
+        "transaction": "Varies by volume",
+        "withdrawal": "Network fees",
+        "notes": "Lower than Coinbase Custody's 50bps for comparable service."
+      },
+      "insurance": {
+        "coverage": "Insurance on all crypto stored in hot wallet. Cold storage coverage varies.",
+        "carrier": "Top insurance providers",
+        "details": "Gemini is one of few exchanges offering insurance on online assets. Cold storage insurance details available to institutional clients."
+      },
+      "regulatory": {
+        "licenses": [
+          "New York Trust Charter",
+          "SOC 1 Type 2",
+          "SOC 2 Type 2"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "New York State Department of Financial Services regulated trust company. First crypto exchange to achieve both SOC 1 and SOC 2 Type 2."
+      },
+      "security": {
+        "keyManagementType": "HSM-based cold storage",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 1 Type 2 + SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "Gemini Earn program issues in 2022 (separate from custody). No custody-specific incidents."
+      },
+      "features": [
+        "Cold storage custody",
+        "SOC 1 & SOC 2 Type 2 certified",
+        "Hardware security key support (WebAuthn)",
+        "Integration with Gemini exchange",
+        "Available in all 50 US states",
+        "70+ asset support"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 7,
+        "regulatory": 9,
+        "feeTransparency": 7.5,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 7.5,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "First crypto exchange to achieve SOC 1 + SOC 2 Type 2",
+        "Competitive custody fee at 40bps",
+        "Available in all 50 US states",
+        "Strong regulatory credentials (NYDFS regulated)",
+        "Good asset diversity (70+ tokens)"
+      ],
+      "cons": [
+        "Single custodian — concentrated risk",
+        "Gemini Earn issues in 2022 damaged brand trust",
+        "Exchange and custody are same entity",
+        "Insurance details somewhat opaque for cold storage",
+        "Smaller institutional presence than Coinbase or Fidelity"
+      ]
+    },
+    {
+      "id": "bakkt",
+      "name": "Bakkt",
+      "slug": "bakkt",
+      "logo": "/logos/bakkt.svg",
+      "website": "https://www.bakkt.com",
+      "founded": 2018,
+      "headquarters": "Alpharetta, GA",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Bakkt is owned by Intercontinental Exchange (ICE), the parent company of the New York Stock Exchange. Offers institutional-grade Bitcoin custody with traditional financial market expertise. Publicly traded (BKKT).",
+      "targetAudience": [
+        "Institutions",
+        "Financial services companies",
+        "Fintechs",
+        "Merchants"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Contact for pricing",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum"
+      ],
+      "keyManagement": "Warehouse-grade cold storage with multi-zone physical security.",
+      "fees": {
+        "setup": "Contact for pricing",
+        "custodyAnnual": "0.10% AUM/month for BTC (1.2% annually). 0.20% AUM/month for ETH.",
+        "transaction": "Varies",
+        "withdrawal": "Network fees",
+        "notes": "$100/month minimum fee. Higher annual rate than most competitors."
+      },
+      "insurance": {
+        "coverage": "$125M reported (as of 2019, may have changed)",
+        "carrier": "Not publicly confirmed recently",
+        "details": "Insurance details less transparent than competitors. Originally claimed $125M coverage."
+      },
+      "regulatory": {
+        "licenses": [
+          "NYDFS Qualified Custodian (Bakkt Trust Company LLC)"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "Bakkt Trust Company LLC is a New York State-regulated qualified custodian. Parent ICE/NYSE provides institutional gravitas."
+      },
+      "security": {
+        "keyManagementType": "Cold storage with multi-zone physical security",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 (details not fully public)",
+        "penetrationTesting": true,
+        "incidentHistory": "No custody incidents. Company has faced financial challenges (stock price decline)."
+      },
+      "features": [
+        "ICE/NYSE pedigree",
+        "Warehouse-grade cold storage",
+        "Consumer wallet solutions",
+        "Crypto rewards and loyalty programs",
+        "Publicly traded (BKKT)",
+        "24/7 response support"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 6,
+        "regulatory": 8.5,
+        "feeTransparency": 7,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 6.5,
+        "reportingAudit": 7.5,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Owned by ICE (NYSE parent) — unmatched traditional finance pedigree",
+        "NYDFS qualified custodian",
+        "Publicly traded — financial transparency",
+        "Multi-zone physical storage",
+        "Does not lend or rehypothecate client assets"
+      ],
+      "cons": [
+        "Single custodian",
+        "1.2% annual custody fee is among the highest in the industry",
+        "$100/month minimum makes it expensive for smaller holdings",
+        "Limited to BTC and ETH only",
+        "Company financial health concerns (stock price decline)"
+      ]
+    },
+    {
+      "id": "fireblocks",
+      "name": "Fireblocks",
+      "slug": "fireblocks",
+      "logo": "/logos/fireblocks.svg",
+      "website": "https://www.fireblocks.com",
+      "founded": 2018,
+      "headquarters": "New York, NY",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Custody Technology Provider",
+      "description": "Fireblocks is primarily a custody technology and infrastructure provider rather than a custodian itself. It provides the MPC-based key management technology that powers many exchanges, fintechs, and custodians. Over 1,800 institutions use Fireblocks infrastructure to secure $6T+ in digital assets.",
+      "targetAudience": [
+        "Exchanges",
+        "Fintechs",
+        "Banks",
+        "Custodians building their own solutions"
+      ],
+      "aum": "$6T+ transferred through platform (not custodied directly)",
+      "minAccount": "Enterprise only",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "1,500+ tokens"
+      ],
+      "keyManagement": "MPC-CMP (Multi-Party Computation with Cryptographic Multi-Party protocol). No single point of compromise.",
+      "fees": {
+        "setup": "Enterprise pricing",
+        "custodyAnnual": "SaaS subscription model",
+        "transaction": "Per-transaction fees vary",
+        "withdrawal": "Network fees",
+        "notes": "Fireblocks is infrastructure, not a direct custodian. Pricing is B2B SaaS. End users don't interact with Fireblocks directly."
+      },
+      "insurance": {
+        "coverage": "Not applicable directly — provides technology, not custodial services",
+        "carrier": "N/A",
+        "details": "Institutions using Fireblocks arrange their own insurance. Fireblocks provides the secure infrastructure layer."
+      },
+      "regulatory": {
+        "licenses": [
+          "Technology provider — regulatory compliance is on the institution using Fireblocks"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Global",
+        "details": "Fireblocks itself is not a custodian. It provides technology to custodians and exchanges. Institutions must pair Fireblocks with a regulated entity."
+      },
+      "security": {
+        "keyManagementType": "MPC-CMP (no single private key exists)",
+        "coldStoragePercent": "Configurable (hot/warm/cold)",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents affecting client funds"
+      },
+      "features": [
+        "MPC key management (no single key ever exists)",
+        "Policy engine for governance workflows",
+        "1,500+ token support",
+        "DeFi access and Web3 connectivity",
+        "Treasury management",
+        "API-first for developers",
+        "Used by 1,800+ institutions"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 2,
+        "regulatory": 5,
+        "feeTransparency": 5,
+        "trackRecord": 8.5,
+        "withdrawalFlexibility": 8,
+        "reportingAudit": 8,
+        "counterpartyDiversification": 4
+      },
+      "pros": [
+        "Industry-leading MPC technology — no single private key ever exists",
+        "Powers 1,800+ institutions and $6T+ in transfers",
+        "SOC 2 Type 2 certified",
+        "1,500+ token support — broadest in the industry",
+        "Extremely flexible — configurable for any custody model"
+      ],
+      "cons": [
+        "Not a custodian itself — requires pairing with regulated entity",
+        "No direct insurance (infrastructure provider)",
+        "Enterprise-only — no retail access",
+        "Complex to evaluate since it's a technology layer",
+        "Opaque pricing"
+      ]
+    },
+    {
+      "id": "ledger",
+      "name": "Ledger",
+      "slug": "ledger",
+      "logo": "/logos/ledger.svg",
+      "website": "https://ledger.com",
+      "founded": 2014,
+      "headquarters": "Paris, France",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "Ledger is the world's leading hardware wallet manufacturer. The Nano S Plus and Nano X devices use secure element chips to protect private keys offline. Over 6 million devices sold globally. Supports 5,500+ cryptocurrencies through Ledger Live.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "5,500+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "$79-$149 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "One-time device cost. No ongoing fees. Free Ledger Live software."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Users are fully responsible for their own security and backup."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "France (EU)",
+        "details": "Consumer electronics company. ANSSI certified secure element."
+      },
+      "security": {
+        "keyManagementType": "Secure element hardware wallet",
+        "coldStoragePercent": "100%",
+        "socCompliance": "ANSSI certified",
+        "penetrationTesting": true,
+        "incidentHistory": "2020 customer database leak (not keys). No key compromises."
+      },
+      "features": [
+        "Secure element chip",
+        "5,500+ asset support",
+        "Ledger Live management app",
+        "Bluetooth (Nano X)",
+        "Staking support",
+        "NFT management"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 1,
+        "regulatory": 2,
+        "feeTransparency": 9.5,
+        "trackRecord": 8.5,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9
+      },
+      "pros": [
+        "World's most popular hardware wallet",
+        "Secure element chip — bank-grade security",
+        "5,500+ supported assets",
+        "Ledger Live ecosystem",
+        "Bluetooth connectivity (Nano X)"
+      ],
+      "cons": [
+        "2020 customer data breach",
+        "Closed-source firmware",
+        "Seed phrase backup responsibility",
+        "Physical device can be lost",
+        "Ledger Recover controversy"
+      ],
+      "targetAudience": [
+        "Individual holders",
+        "Long-term HODLers",
+        "Privacy-focused users",
+        "Beginners to self-custody"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$79 (Nano S Plus) / ~$149 (Nano X)",
+      "keyManagement": "Hardware wallet with secure element chip. Keys never leave the device. Companion app Ledger Live for management."
+    },
+    {
+      "id": "trezor",
+      "name": "Trezor",
+      "slug": "trezor",
+      "logo": "/logos/trezor.svg",
+      "website": "https://trezor.io",
+      "founded": 2013,
+      "headquarters": "Prague, Czech Republic",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "Trezor created the first hardware wallet in 2013. Fully open-source firmware and software. The Model T features a touchscreen. Trezor Suite desktop app provides portfolio management. Strong focus on transparency and open-source ethos.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "1,800+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "$69-$219 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "One-time purchase. Fully open-source. Free Trezor Suite software."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Czech Republic (EU)",
+        "details": "SatoshiLabs — consumer electronics."
+      },
+      "security": {
+        "keyManagementType": "Open-source hardware wallet",
+        "coldStoragePercent": "100%",
+        "socCompliance": "Open-source audited",
+        "penetrationTesting": true,
+        "incidentHistory": "Physical extraction vulnerability (patched). No remote compromises."
+      },
+      "features": [
+        "Fully open-source",
+        "Trezor Suite desktop app",
+        "Touchscreen (Model T)",
+        "Shamir backup (SLIP39)",
+        "Coin control",
+        "Tor integration"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 1,
+        "regulatory": 2,
+        "feeTransparency": 9.5,
+        "trackRecord": 9,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9
+      },
+      "pros": [
+        "First hardware wallet — longest track record",
+        "Fully open-source firmware and software",
+        "Shamir backup for better key security",
+        "Trezor Suite with Tor integration",
+        "Community-audited code"
+      ],
+      "cons": [
+        "No secure element chip",
+        "Physical extraction vulnerability (patched)",
+        "Fewer supported assets than Ledger",
+        "Less sleek design",
+        "Model T is expensive"
+      ],
+      "targetAudience": [
+        "Open-source advocates",
+        "Privacy-focused users",
+        "Long-term holders",
+        "Technically-inclined users"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$69 (Model One) / ~$219 (Model T) / ~$169 (Safe 3)",
+      "keyManagement": "Open-source hardware wallet. Keys stored on device. Trezor Suite for management."
+    },
+    {
+      "id": "coldcard",
+      "name": "Coldcard",
+      "slug": "coldcard",
+      "logo": "/logos/coldcard.svg",
+      "website": "https://coldcard.com",
+      "founded": 2018,
+      "headquarters": "Toronto, Canada",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "Coldcard is a Bitcoin-only hardware wallet designed for maximum security. Features air-gapped operation (microSD or NFC), duress PIN, secure element, and full PSBT support. Favorite of Bitcoin maximalists and security experts.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "$99-$148 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Bitcoin-only by design. Air-gapped signing via microSD."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Canada",
+        "details": "Coinkite Inc. Bitcoin-focused hardware company."
+      },
+      "security": {
+        "keyManagementType": "Air-gapped hardware wallet with secure element",
+        "coldStoragePercent": "100%",
+        "socCompliance": "N/A",
+        "penetrationTesting": true,
+        "incidentHistory": "No known compromises"
+      },
+      "features": [
+        "Air-gapped operation",
+        "Duress PIN",
+        "Secure element",
+        "PSBT support",
+        "Dice roll entropy",
+        "Multisig native"
+      ],
+      "scores": {
+        "security": 9.5,
+        "insurance": 1,
+        "regulatory": 1,
+        "feeTransparency": 9.5,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 9,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9.5
+      },
+      "pros": [
+        "Gold standard for Bitcoin hardware security",
+        "True air-gapped operation",
+        "Duress PIN and security features",
+        "Open-source and auditable",
+        "Dice roll for true randomness"
+      ],
+      "cons": [
+        "Bitcoin only — no altcoins",
+        "Not beginner-friendly",
+        "No mobile app companion",
+        "Utilitarian design",
+        "Requires technical knowledge"
+      ],
+      "targetAudience": [
+        "Bitcoin maximalists",
+        "Security experts",
+        "Air-gap enthusiasts",
+        "Advanced users"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$148 (Mk4) / ~$99 (Q1)",
+      "keyManagement": "Air-gapped Bitcoin-only hardware wallet. Secure element. MicroSD transaction signing."
+    },
+    {
+      "id": "bitbox02",
+      "name": "BitBox02",
+      "slug": "bitbox02",
+      "logo": "/logos/bitbox02.svg",
+      "website": "https://shiftcrypto.ch",
+      "founded": 2019,
+      "headquarters": "Zurich, Switzerland",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "BitBox02 by Shift Crypto is a Swiss-made hardware wallet with dual-chip architecture (secure element + microcontroller). Bitcoin-only edition available. Minimalist design with touch sliders. Open-source firmware.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "1,500+ (Multi edition)"
+      ],
+      "fees": {
+        "setup": "$129-$149 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Swiss quality. Bitcoin-only edition available for maximalists."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Switzerland",
+        "details": "Shift Crypto AG — Swiss-registered company."
+      },
+      "security": {
+        "keyManagementType": "Dual-chip hardware wallet",
+        "coldStoragePercent": "100%",
+        "socCompliance": "Open-source audited",
+        "penetrationTesting": true,
+        "incidentHistory": "No known compromises"
+      },
+      "features": [
+        "Dual-chip architecture",
+        "Open-source firmware",
+        "Bitcoin-only edition",
+        "Touch sliders",
+        "MicroSD backup",
+        "Tor support via BitBoxApp"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 1,
+        "regulatory": 2,
+        "feeTransparency": 9.5,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9
+      },
+      "pros": [
+        "Swiss-made quality and security",
+        "Dual-chip architecture",
+        "Fully open-source",
+        "Bitcoin-only edition available",
+        "Excellent minimalist design"
+      ],
+      "cons": [
+        "Newer brand — less established",
+        "Smaller community",
+        "Limited third-party integrations",
+        "No Bluetooth",
+        "Touch sliders take practice"
+      ],
+      "targetAudience": [
+        "Privacy-focused users",
+        "Swiss quality seekers",
+        "Bitcoin-only users",
+        "Minimalists"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$149 (Multi) / ~$129 (Bitcoin-only)",
+      "keyManagement": "Dual-chip hardware wallet. Open-source. Swiss-made. Touch slider interface."
+    },
+    {
+      "id": "foundation-passport",
+      "name": "Foundation Passport",
+      "slug": "foundation-passport",
+      "logo": "/logos/foundation-passport.svg",
+      "website": "https://foundationdevices.com",
+      "founded": 2020,
+      "headquarters": "Boston, MA",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "Foundation Passport is a premium air-gapped Bitcoin hardware wallet with a distinctive design featuring a camera for QR code scanning. Open-source hardware and firmware. Envoy companion app. Designed in the USA.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "$199 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Premium device. Air-gapped via QR codes and microSD."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "Foundation Devices Inc. US-based open-source hardware company."
+      },
+      "security": {
+        "keyManagementType": "Air-gapped hardware wallet with camera",
+        "coldStoragePercent": "100%",
+        "socCompliance": "Open-source audited",
+        "penetrationTesting": true,
+        "incidentHistory": "No known compromises"
+      },
+      "features": [
+        "Air-gapped QR scanning",
+        "Open-source hardware + firmware",
+        "Envoy companion app",
+        "Premium build quality",
+        "Camera-based signing",
+        "MicroSD backup"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 1,
+        "regulatory": 1,
+        "feeTransparency": 9,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 9,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9.5
+      },
+      "pros": [
+        "Beautiful premium design",
+        "Truly air-gapped with QR camera",
+        "Open-source hardware AND firmware",
+        "Envoy app is excellent",
+        "Designed and assembled in USA"
+      ],
+      "cons": [
+        "Bitcoin only",
+        "Most expensive consumer hardware wallet",
+        "Newer company",
+        "Smaller community",
+        "Larger form factor than competitors"
+      ],
+      "targetAudience": [
+        "Design-conscious Bitcoiners",
+        "Air-gap enthusiasts",
+        "Open-source advocates",
+        "US-made seekers"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$199 (Passport)",
+      "keyManagement": "Air-gapped Bitcoin wallet with camera for QR code scanning. Open-source hardware."
+    },
+    {
+      "id": "blockstream-jade",
+      "name": "Blockstream Jade",
+      "slug": "blockstream-jade",
+      "logo": "/logos/blockstream-jade.svg",
+      "website": "https://blockstream.com/jade/",
+      "founded": 2021,
+      "headquarters": "Victoria, BC, Canada",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "Blockstream Jade is an affordable open-source hardware wallet with unique 'virtual secure element' technology. Camera for QR-based air-gapped signing. Backed by Blockstream, a leading Bitcoin infrastructure company.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Liquid Network assets"
+      ],
+      "fees": {
+        "setup": "$65 (device purchase)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Most affordable quality hardware wallet. Blockstream Green integration."
+      },
+      "insurance": {
+        "coverage": "None — self-custody hardware",
+        "carrier": "N/A",
+        "details": "Hardware wallet. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — hardware manufacturer"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Canada",
+        "details": "Blockstream Corporation — major Bitcoin infrastructure company."
+      },
+      "security": {
+        "keyManagementType": "Virtual secure element hardware wallet",
+        "coldStoragePercent": "100%",
+        "socCompliance": "Open-source audited",
+        "penetrationTesting": true,
+        "incidentHistory": "No known compromises"
+      },
+      "features": [
+        "Virtual secure element",
+        "Camera for air-gapped QR signing",
+        "Open-source",
+        "Liquid Network support",
+        "Blockstream Green integration",
+        "Affordable"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 1,
+        "regulatory": 1,
+        "feeTransparency": 9.5,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9
+      },
+      "pros": [
+        "Most affordable quality hardware wallet",
+        "Blockstream backing and ecosystem",
+        "Air-gapped QR signing with camera",
+        "Fully open-source",
+        "Liquid Network support"
+      ],
+      "cons": [
+        "Virtual secure element is unconventional",
+        "Newer product",
+        "Limited altcoin support",
+        "Less established than Ledger/Trezor",
+        "Requires Blockstream Green for best experience"
+      ],
+      "targetAudience": [
+        "Budget-conscious Bitcoiners",
+        "Blockstream ecosystem users",
+        "Liquid Network users",
+        "Open-source advocates"
+      ],
+      "aum": "N/A (hardware manufacturer)",
+      "minAccount": "~$65 (Jade Plus)",
+      "keyManagement": "Open-source hardware wallet with virtual secure element and camera for air-gapped QR signing."
+    },
+    {
+      "id": "seedsigner",
+      "name": "SeedSigner",
+      "slug": "seedsigner",
+      "logo": "/logos/seedsigner.svg",
+      "website": "https://seedsigner.com",
+      "founded": 2021,
+      "headquarters": "Open Source",
+      "custodyType": "cold-storage",
+      "custodyTypeLabel": "Cold Storage / Hardware",
+      "description": "SeedSigner is a DIY air-gapped Bitcoin signing device built from off-the-shelf Raspberry Pi components. Completely open-source. Stateless design — never stores keys. Camera-based QR code signing. Community-driven project.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "~$50 (Raspberry Pi Zero + camera + screen)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Build it yourself from off-the-shelf components. Truly zero trust."
+      },
+      "insurance": {
+        "coverage": "None — DIY self-custody",
+        "carrier": "N/A",
+        "details": "DIY project. No company behind it. No insurance possible."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — open-source project"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Decentralized / Open Source",
+        "details": "Community-driven open-source project. No company."
+      },
+      "security": {
+        "keyManagementType": "Stateless signing device",
+        "coldStoragePercent": "100% (stateless)",
+        "socCompliance": "N/A",
+        "penetrationTesting": false,
+        "incidentHistory": "No known compromises"
+      },
+      "features": [
+        "Stateless — never stores keys",
+        "DIY from off-the-shelf parts",
+        "Camera-based QR signing",
+        "Dice roll entropy",
+        "Fully open-source",
+        "Zero supply chain trust required"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 1,
+        "regulatory": 1,
+        "feeTransparency": 10,
+        "trackRecord": 6,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 1,
+        "counterpartyDiversification": 10
+      },
+      "pros": [
+        "Stateless — keys never stored on device",
+        "Build from off-the-shelf components",
+        "Zero supply chain attack surface",
+        "Cheapest air-gapped signing solution",
+        "Ultimate sovereignty and transparency"
+      ],
+      "cons": [
+        "DIY only — no pre-built option",
+        "Not user-friendly at all",
+        "No company support",
+        "Requires significant technical skill",
+        "Raspberry Pi availability can be limited"
+      ],
+      "targetAudience": [
+        "DIY enthusiasts",
+        "Cypherpunks",
+        "Security researchers",
+        "Ultra-paranoid Bitcoiners"
+      ],
+      "aum": "N/A (DIY project)",
+      "minAccount": "~$50 (components)",
+      "keyManagement": "DIY stateless signing device. Never stores keys. Camera-based QR code signing. Built from Raspberry Pi Zero."
+    },
+    {
+      "id": "kraken",
+      "name": "Kraken",
+      "slug": "kraken",
+      "logo": "/logos/kraken.svg",
+      "website": "https://kraken.com",
+      "founded": 2011,
+      "headquarters": "San Francisco, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Kraken is one of the oldest and most trusted cryptocurrency exchanges, operating since 2011 with no major security breaches. Known for strong security practices, proof of reserves, and a comprehensive trading platform.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "200+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "0.16-0.26% maker/taker",
+        "withdrawal": "Network fees + small flat fee",
+        "notes": "Competitive trading fees. Free ACH deposits. Proof of reserves audited."
+      },
+      "insurance": {
+        "coverage": "Not explicitly disclosed",
+        "carrier": "N/A",
+        "details": "Maintains significant cold storage reserves. Proof of reserves verified."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB",
+          "State money transmitter licenses",
+          "FCA registered (UK)",
+          "AUSTRAC (Australia)"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States / Global",
+        "details": "One of the most compliant global exchanges. Bank partnership for USD."
+      },
+      "security": {
+        "keyManagementType": "Exchange hot/cold wallet system",
+        "coldStoragePercent": "95%+ cold storage",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No major security breaches in 13+ years"
+      },
+      "features": [
+        "95%+ cold storage",
+        "Proof of reserves",
+        "13+ year track record",
+        "Staking services",
+        "Futures and margin trading",
+        "24/7 customer support"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 5.5,
+        "regulatory": 8,
+        "feeTransparency": 8,
+        "trackRecord": 9,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 8,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "13+ year track record with zero major breaches",
+        "Proof of reserves — verified by third party",
+        "95%+ assets in cold storage",
+        "Competitive trading fees",
+        "Global regulatory compliance"
+      ],
+      "cons": [
+        "Exchange custody — you don't hold keys",
+        "Insurance details not public",
+        "US regulatory uncertainty",
+        "Single custodian risk",
+        "Past employee security incidents"
+      ],
+      "targetAudience": [
+        "Active traders",
+        "Security-conscious exchange users",
+        "International users",
+        "Stakers"
+      ],
+      "aum": "$20B+ in quarterly trading volume",
+      "minAccount": "No minimum",
+      "keyManagement": "Exchange-managed hot/cold wallet system with proof of reserves."
+    },
+    {
+      "id": "coinbase-retail",
+      "name": "Coinbase",
+      "slug": "coinbase-retail",
+      "logo": "/logos/coinbase-retail.svg",
+      "website": "https://coinbase.com",
+      "founded": 2012,
+      "headquarters": "San Francisco, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Coinbase is the largest US-based cryptocurrency exchange and the only publicly traded one (NASDAQ: COIN). Known for ease of use and regulatory compliance. Serves as custodian for multiple Bitcoin ETFs including BlackRock's IBIT.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "250+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "~1.5% (Simple) / 0.05-0.6% (Advanced)",
+        "withdrawal": "Network fees",
+        "notes": "Simple interface has higher fees. Advanced trading has competitive fees."
+      },
+      "insurance": {
+        "coverage": "Crypto insurance for hot wallet portion. FDIC on USD (up to $250K).",
+        "carrier": "Crime insurance policy",
+        "details": "Publicly traded company. FDIC insurance on cash. Crypto hot wallet insured."
+      },
+      "regulatory": {
+        "licenses": [
+          "NASDAQ listed (COIN)",
+          "FinCEN MSB",
+          "NY BitLicense",
+          "State licenses",
+          "Multiple international licenses"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States / Global",
+        "details": "Most regulated US exchange. Publicly traded. Custodian for multiple Bitcoin ETFs."
+      },
+      "security": {
+        "keyManagementType": "Institutional cold storage system",
+        "coldStoragePercent": "98%+",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "2021 account takeover attacks (phishing, not platform breach)"
+      },
+      "features": [
+        "Publicly traded (NASDAQ)",
+        "98%+ cold storage",
+        "ETF custodian (BlackRock IBIT)",
+        "FDIC on USD",
+        "Beginner-friendly interface",
+        "Coinbase Vault for extra security"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 7,
+        "regulatory": 9.5,
+        "feeTransparency": 6,
+        "trackRecord": 8.5,
+        "withdrawalFlexibility": 8,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Publicly traded — maximum transparency",
+        "Custodian for BlackRock and other ETFs",
+        "98%+ cold storage",
+        "Most regulated US exchange",
+        "Beginner-friendly with Coinbase Vault"
+      ],
+      "cons": [
+        "High fees on Simple interface (~1.5%)",
+        "Exchange custody — you don't hold keys",
+        "Customer support complaints",
+        "Single custodian risk",
+        "2021 phishing-related account compromises"
+      ],
+      "targetAudience": [
+        "Beginners",
+        "US-based investors",
+        "Passive holders",
+        "Mainstream adopters"
+      ],
+      "aum": "$130B+ assets on platform",
+      "minAccount": "No minimum ($1)",
+      "keyManagement": "Exchange-managed custody with institutional-grade cold storage infrastructure."
+    },
+    {
+      "id": "gemini-retail",
+      "name": "Gemini",
+      "slug": "gemini-retail",
+      "logo": "/logos/gemini-retail.svg",
+      "website": "https://gemini.com",
+      "founded": 2014,
+      "headquarters": "New York, NY",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Gemini is a New York-regulated cryptocurrency exchange founded by the Winklevoss twins. SOC 2 Type 2 certified. Known for regulatory compliance and security. Offers the Gemini Dollar (GUSD) stablecoin and Gemini Earn (lending).",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "100+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "0.2-0.4% maker/taker (ActiveTrader)",
+        "withdrawal": "Free withdrawals (10/month)",
+        "notes": "10 free crypto withdrawals per month. ActiveTrader has competitive fees."
+      },
+      "insurance": {
+        "coverage": "$200M+ hot wallet insurance",
+        "carrier": "Leading carriers",
+        "details": "One of the highest disclosed insurance amounts among exchanges."
+      },
+      "regulatory": {
+        "licenses": [
+          "NY Trust Company (NYDFS)",
+          "SOC 2 Type 2",
+          "Multiple state licenses"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "NY Trust Company charter — highest US regulatory standard for crypto."
+      },
+      "security": {
+        "keyManagementType": "Institutional hot/cold custody",
+        "coldStoragePercent": "95%+",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "Gemini Earn issues (Genesis lending). Exchange itself unbreached."
+      },
+      "features": [
+        "NY Trust Company charter",
+        "SOC 2 Type 2 certified",
+        "$200M+ insurance",
+        "10 free withdrawals/month",
+        "ActiveTrader low fees",
+        "Gemini Dollar (GUSD)"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 7.5,
+        "regulatory": 9,
+        "feeTransparency": 7,
+        "trackRecord": 7.5,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 9,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "NY Trust Company — highest regulatory standard",
+        "SOC 2 Type 2 certified",
+        "$200M+ disclosed insurance",
+        "10 free crypto withdrawals per month",
+        "Strong security track record for exchange"
+      ],
+      "cons": [
+        "Gemini Earn (lending) controversy",
+        "Smaller trading volume than competitors",
+        "Higher basic fees",
+        "Single custodian risk",
+        "Winklevoss concentration risk"
+      ],
+      "targetAudience": [
+        "Compliance-focused users",
+        "NY-based investors",
+        "Security-conscious traders",
+        "Stablecoin users"
+      ],
+      "aum": "$30B+ in assets",
+      "minAccount": "$1 minimum",
+      "keyManagement": "Exchange-managed custody with SOC 2 Type 2 certified infrastructure."
+    },
+    {
+      "id": "bitstamp",
+      "name": "Bitstamp",
+      "slug": "bitstamp",
+      "logo": "/logos/bitstamp.svg",
+      "website": "https://bitstamp.net",
+      "founded": 2011,
+      "headquarters": "Luxembourg",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Bitstamp is one of the oldest cryptocurrency exchanges, operating since 2011. European-based with Luxembourg banking license. Acquired by Robinhood in 2024. Known for reliability and institutional focus.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "80+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "0.0-0.4% tiered",
+        "withdrawal": "Network fees",
+        "notes": "Competitive tiered fee structure. One of Europe's most established exchanges."
+      },
+      "insurance": {
+        "coverage": "BitGo custody insurance for cold storage",
+        "carrier": "Via BitGo",
+        "details": "Cold storage through BitGo with insurance coverage."
+      },
+      "regulatory": {
+        "licenses": [
+          "Luxembourg payment institution license",
+          "FCA registered (UK)",
+          "Multiple EU licenses"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Luxembourg / EU / Global",
+        "details": "Luxembourg-licensed. One of the most established exchanges globally."
+      },
+      "security": {
+        "keyManagementType": "BitGo custody partnership",
+        "coldStoragePercent": "95%+",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "2015 hot wallet breach (19,000 BTC). Fully repaid users."
+      },
+      "features": [
+        "13+ year track record",
+        "Luxembourg banking license",
+        "BitGo custody partnership",
+        "Low trading fees",
+        "Institutional API",
+        "SEPA/SWIFT support"
+      ],
+      "scores": {
+        "security": 7.5,
+        "insurance": 6.5,
+        "regulatory": 8.5,
+        "feeTransparency": 8,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 8,
+        "reportingAudit": 7.5,
+        "counterpartyDiversification": 3
+      },
+      "pros": [
+        "13+ year track record — among oldest exchanges",
+        "Luxembourg banking license",
+        "Competitive fee structure",
+        "Strong European presence",
+        "BitGo custody infrastructure"
+      ],
+      "cons": [
+        "2015 security breach (users made whole)",
+        "Acquired by Robinhood (ownership change)",
+        "Smaller than Coinbase/Kraken",
+        "Single custodian risk",
+        "Limited altcoin selection"
+      ],
+      "targetAudience": [
+        "European investors",
+        "Institutional traders",
+        "Long-term exchange users",
+        "Fiat gateway seekers"
+      ],
+      "aum": "$5B+ trading volume",
+      "minAccount": "$10 minimum",
+      "keyManagement": "Exchange-managed custody with BitGo partnership for cold storage."
+    },
+    {
+      "id": "river",
+      "name": "River",
+      "slug": "river",
+      "logo": "/logos/river.svg",
+      "website": "https://river.com",
+      "founded": 2019,
+      "headquarters": "San Francisco, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "River is a Bitcoin-only financial institution focused on providing the best Bitcoin buying experience. Zero-fee recurring purchases. Known for excellent customer service, Bitcoin education, and a clean mobile app.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "1.0-1.5% (spread)",
+        "withdrawal": "Free Bitcoin withdrawals",
+        "notes": "Zero-fee recurring buys. Spread-based pricing. Free withdrawals."
+      },
+      "insurance": {
+        "coverage": "Not explicitly disclosed",
+        "carrier": "N/A",
+        "details": "US-regulated Bitcoin-only platform."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB",
+          "State money transmitter licenses"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "US-regulated Bitcoin financial services company."
+      },
+      "security": {
+        "keyManagementType": "Proprietary cold storage",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Bitcoin-only focus",
+        "Zero-fee recurring purchases",
+        "Free Bitcoin withdrawals",
+        "Excellent mobile app",
+        "Lightning Network support",
+        "Bitcoin education resources"
+      ],
+      "scores": {
+        "security": 7.5,
+        "insurance": 4,
+        "regulatory": 7,
+        "feeTransparency": 7.5,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 9,
+        "reportingAudit": 6,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Bitcoin-only — aligned with Bitcoin ethos",
+        "Zero-fee recurring purchases",
+        "Free Bitcoin withdrawals",
+        "Lightning Network support",
+        "Excellent customer service"
+      ],
+      "cons": [
+        "Higher spread than large exchanges",
+        "Bitcoin only — no altcoins",
+        "Newer company (2019)",
+        "Limited insurance information",
+        "Single custodian risk"
+      ],
+      "targetAudience": [
+        "Bitcoin-only investors",
+        "DCA enthusiasts",
+        "Beginners",
+        "US-based Bitcoiners"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "No minimum",
+      "keyManagement": "Bitcoin-only exchange with proprietary custody infrastructure."
+    },
+    {
+      "id": "strike",
+      "name": "Strike",
+      "slug": "strike",
+      "logo": "/logos/strike.svg",
+      "website": "https://strike.me",
+      "founded": 2020,
+      "headquarters": "Chicago, IL",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Strike is a Bitcoin and Lightning Network payment app focused on fast, low-cost Bitcoin purchases and transfers. Known for near-zero fees and Lightning Network integration. Founded by Jack Mallers.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "~0.0-0.99% (variable spread)",
+        "withdrawal": "Free via Lightning / Network fees on-chain",
+        "notes": "Among lowest Bitcoin buying fees. Free Lightning withdrawals."
+      },
+      "insurance": {
+        "coverage": "Not publicly disclosed",
+        "carrier": "N/A",
+        "details": "Regulated US money transmitter. Custodial for Bitcoin held on platform."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB",
+          "State money transmitter licenses"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "US-regulated. Focus on payments and Lightning Network."
+      },
+      "security": {
+        "keyManagementType": "Exchange-managed custody",
+        "coldStoragePercent": "Not disclosed",
+        "socCompliance": "N/A",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Lightning Network native",
+        "Near-zero buying fees",
+        "Instant Bitcoin purchases",
+        "International transfers",
+        "Bitcoin payment rails",
+        "Clean mobile app"
+      ],
+      "scores": {
+        "security": 6.5,
+        "insurance": 3,
+        "regulatory": 6.5,
+        "feeTransparency": 7,
+        "trackRecord": 6,
+        "withdrawalFlexibility": 9,
+        "reportingAudit": 4,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Lowest Bitcoin buying fees",
+        "Lightning Network integration",
+        "Instant purchases",
+        "Excellent mobile app",
+        "International payment capabilities"
+      ],
+      "cons": [
+        "Limited security disclosures",
+        "No insurance information public",
+        "Bitcoin only — no altcoins",
+        "Newer company",
+        "Payment-focused — limited custody features"
+      ],
+      "targetAudience": [
+        "Lightning Network users",
+        "Fee-conscious buyers",
+        "International remittance users",
+        "Bitcoin payment users"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "No minimum",
+      "keyManagement": "Bitcoin purchase and Lightning Network payment app."
+    },
+    {
+      "id": "cash-app",
+      "name": "Cash App",
+      "slug": "cash-app",
+      "logo": "/logos/cash-app.svg",
+      "website": "https://cash.app",
+      "founded": 2013,
+      "headquarters": "San Francisco, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Cash App by Block (formerly Square) allows Bitcoin purchases within its popular payment app. Over 50 million monthly active users. Proof of reserves published. Auto-invest feature for DCA. Founded by Jack Dorsey.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "~1.5-2.5% (spread)",
+        "withdrawal": "Free Bitcoin withdrawals",
+        "notes": "Convenient but higher spread than dedicated exchanges. Free withdrawals."
+      },
+      "insurance": {
+        "coverage": "Block Inc. corporate insurance",
+        "carrier": "Via Block Inc.",
+        "details": "Publicly traded parent company (Block Inc. / SQ)."
+      },
+      "regulatory": {
+        "licenses": [
+          "NY BitLicense",
+          "State money transmitter licenses",
+          "FinCEN MSB"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "Block Inc. (NYSE: SQ) — publicly traded fintech company."
+      },
+      "security": {
+        "keyManagementType": "Block Inc. managed custody",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "Block Inc. SOC 2",
+        "penetrationTesting": true,
+        "incidentHistory": "2022 employee data breach (Cash App Investing, not Bitcoin)"
+      },
+      "features": [
+        "50M+ monthly users",
+        "Free Bitcoin withdrawals",
+        "Auto-invest (DCA)",
+        "Proof of reserves",
+        "Lightning Network support",
+        "Mainstream accessibility"
+      ],
+      "scores": {
+        "security": 7,
+        "insurance": 5,
+        "regulatory": 8,
+        "feeTransparency": 5.5,
+        "trackRecord": 7.5,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 7,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Most accessible Bitcoin on-ramp — 50M+ users",
+        "Free Bitcoin withdrawals",
+        "Publicly traded parent (Block/SQ)",
+        "Lightning Network support",
+        "Proof of reserves published"
+      ],
+      "cons": [
+        "Higher spread than dedicated exchanges",
+        "Limited Bitcoin features",
+        "2022 employee data breach",
+        "Not a dedicated Bitcoin platform",
+        "Single custodian risk"
+      ],
+      "targetAudience": [
+        "Mainstream users",
+        "Beginners",
+        "Small investors",
+        "Cash App existing users"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "No minimum ($1)",
+      "keyManagement": "Bitcoin buying within Cash App payment ecosystem. Block Inc. custody."
+    },
+    {
+      "id": "robinhood",
+      "name": "Robinhood",
+      "slug": "robinhood",
+      "logo": "/logos/robinhood.svg",
+      "website": "https://robinhood.com",
+      "founded": 2013,
+      "headquarters": "Menlo Park, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Robinhood is a publicly traded (NASDAQ: HOOD) fintech platform offering commission-free crypto trading alongside stocks. Acquired Bitstamp in 2024. Crypto wallets now support withdrawals. Over 23 million funded accounts.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "20+ cryptocurrencies"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "0% commission (spread-based ~0.4%)",
+        "withdrawal": "Network fees",
+        "notes": "Commission-free trading. Revenue from spread and payment for order flow."
+      },
+      "insurance": {
+        "coverage": "SIPC for securities (NOT crypto). Crime insurance for crypto.",
+        "carrier": "SIPC (securities) + crime insurance",
+        "details": "SIPC coverage for stocks. Crypto has separate crime insurance."
+      },
+      "regulatory": {
+        "licenses": [
+          "NASDAQ listed (HOOD)",
+          "SEC/FINRA registered (securities)",
+          "State money transmitter licenses (crypto)"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "Publicly traded. SEC registered for securities. State-licensed for crypto."
+      },
+      "security": {
+        "keyManagementType": "Exchange-managed custody",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "2021 data breach (customer info, not funds). Crypto wallets added later."
+      },
+      "features": [
+        "Commission-free trading",
+        "Crypto alongside stocks",
+        "Crypto wallets with withdrawals",
+        "23M+ funded accounts",
+        "Bitstamp acquisition",
+        "Clean mobile interface"
+      ],
+      "scores": {
+        "security": 7,
+        "insurance": 6,
+        "regulatory": 8.5,
+        "feeTransparency": 6,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 7.5,
+        "reportingAudit": 8,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "Commission-free crypto trading",
+        "Crypto alongside stock portfolio",
+        "Publicly traded — transparent",
+        "23M+ funded accounts",
+        "Crypto wallets now support withdrawals"
+      ],
+      "cons": [
+        "Spread-based pricing can be costly",
+        "2021 customer data breach",
+        "Limited crypto selection",
+        "Previously no crypto withdrawals",
+        "Crypto is secondary to stock trading"
+      ],
+      "targetAudience": [
+        "Stock traders adding crypto",
+        "Fee-conscious traders",
+        "Beginners",
+        "US retail investors"
+      ],
+      "aum": "$130B+ in assets under custody (all assets)",
+      "minAccount": "$1 minimum",
+      "keyManagement": "Exchange-managed custody with option to withdraw crypto to external wallets."
+    },
+    {
+      "id": "interactive-brokers",
+      "name": "Interactive Brokers",
+      "slug": "interactive-brokers",
+      "logo": "/logos/interactive-brokers.svg",
+      "website": "https://interactivebrokers.com",
+      "founded": 1978,
+      "headquarters": "Greenwich, CT",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Interactive Brokers is one of the largest and most established brokerages globally offering cryptocurrency trading alongside stocks, options, futures, and forex. SIPC member. Institutional-grade execution and lowest crypto trading fees.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "Limited crypto selection"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None",
+        "transaction": "0.12-0.18% tiered",
+        "withdrawal": "Not available (no crypto transfers out)",
+        "notes": "Among lowest crypto trading fees. But no crypto withdrawals — must sell to withdraw."
+      },
+      "insurance": {
+        "coverage": "SIPC up to $500K for securities (NOT crypto)",
+        "carrier": "SIPC + excess",
+        "details": "World-class securities insurance. Crypto is NOT insured."
+      },
+      "regulatory": {
+        "licenses": [
+          "SEC registered",
+          "FINRA member",
+          "SIPC member",
+          "Global regulatory licenses"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States / Global",
+        "details": "One of the most regulated brokerages globally."
+      },
+      "security": {
+        "keyManagementType": "Paxos custody partnership",
+        "coldStoragePercent": "Via Paxos",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No major incidents in 45+ year history"
+      },
+      "features": [
+        "45+ year track record",
+        "Crypto alongside stocks/bonds/options",
+        "Institutional-grade execution",
+        "Lowest crypto trading fees",
+        "Global presence",
+        "Professional trading tools"
+      ],
+      "scores": {
+        "security": 6.5,
+        "insurance": 5,
+        "regulatory": 9,
+        "feeTransparency": 7,
+        "trackRecord": 9.5,
+        "withdrawalFlexibility": 5,
+        "reportingAudit": 8,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "45+ year track record — most established broker",
+        "Lowest crypto trading fees (0.12-0.18%)",
+        "Crypto alongside stocks/bonds/options",
+        "Institutional-grade platform",
+        "Global regulatory compliance"
+      ],
+      "cons": [
+        "Cannot withdraw crypto — must sell",
+        "Limited crypto asset selection",
+        "Crypto not SIPC insured",
+        "Complex platform — not beginner-friendly",
+        "Crypto is secondary to traditional assets"
+      ],
+      "targetAudience": [
+        "Professional traders",
+        "Multi-asset investors",
+        "RIAs adding crypto",
+        "Institutional traders"
+      ],
+      "aum": "$400B+ client equity",
+      "minAccount": "No minimum for crypto",
+      "keyManagement": "Exchange-managed custody via Paxos partnership."
+    },
+    {
+      "id": "copper",
+      "name": "Copper",
+      "slug": "copper",
+      "logo": "/logos/copper.svg",
+      "website": "https://copper.co",
+      "founded": 2018,
+      "headquarters": "London, UK",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Copper provides institutional digital asset custody using MPC technology. Known for ClearLoop — enabling off-exchange trading while assets remain in custody. Serves major institutions globally.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "400+ assets"
+      ],
+      "fees": {
+        "setup": "Custom institutional pricing",
+        "custodyAnnual": "Custom",
+        "transaction": "Custom",
+        "withdrawal": "Network fees",
+        "notes": "Enterprise pricing. ClearLoop reduces counterparty risk for trading."
+      },
+      "insurance": {
+        "coverage": "Insurance coverage available",
+        "carrier": "Lloyd's market",
+        "details": "Institutional custody insurance available."
+      },
+      "regulatory": {
+        "licenses": [
+          "UK regulatory permissions pending"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United Kingdom",
+        "details": "UK-based. Seeking full FCA authorization."
+      },
+      "security": {
+        "keyManagementType": "MPC-based custody",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "MPC-based key management",
+        "ClearLoop off-exchange trading",
+        "400+ asset support",
+        "Policy engine",
+        "DeFi access from custody",
+        "Global institutional service"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 7,
+        "regulatory": 7.5,
+        "feeTransparency": 5,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 7.5,
+        "reportingAudit": 7.5,
+        "counterpartyDiversification": 3
+      },
+      "pros": [
+        "ClearLoop — trade without moving assets to exchange",
+        "MPC technology — no single point of failure",
+        "SOC 2 Type 2 certified",
+        "Institutional-grade service",
+        "Growing rapidly in institutional market"
+      ],
+      "cons": [
+        "Full regulatory status still pending",
+        "Opaque pricing",
+        "Institutional only",
+        "UK-focused — less US presence",
+        "Single custodian model"
+      ],
+      "targetAudience": [
+        "Institutions",
+        "Hedge funds",
+        "Trading firms",
+        "Asset managers"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Institutional only",
+      "keyManagement": "MPC-based custody. ClearLoop off-exchange settlement."
+    },
+    {
+      "id": "zodia-custody",
+      "name": "Zodia Custody",
+      "slug": "zodia-custody",
+      "logo": "/logos/zodia-custody.svg",
+      "website": "https://zodia.io",
+      "founded": 2020,
+      "headquarters": "London, UK",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Zodia Custody is backed by Standard Chartered bank and Northern Trust. FCA registered. Provides institutional-grade digital asset custody with the backing of two of the world's largest financial institutions.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "Multiple digital assets"
+      ],
+      "fees": {
+        "setup": "Custom",
+        "custodyAnnual": "Custom",
+        "transaction": "Custom",
+        "withdrawal": "Network fees",
+        "notes": "Backed by Standard Chartered and Northern Trust."
+      },
+      "insurance": {
+        "coverage": "Institutional coverage via parent companies",
+        "carrier": "Via Standard Chartered/Northern Trust",
+        "details": "Backed by two of the world's largest financial institutions."
+      },
+      "regulatory": {
+        "licenses": [
+          "FCA registered (UK)"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United Kingdom / Global",
+        "details": "FCA registered. Backed by Standard Chartered and Northern Trust."
+      },
+      "security": {
+        "keyManagementType": "Institutional cold storage",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Standard Chartered backed",
+        "Northern Trust partnership",
+        "FCA registered",
+        "Institutional-grade security",
+        "DeFi access",
+        "Staking services"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 7.5,
+        "regulatory": 8.5,
+        "feeTransparency": 5,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 7,
+        "reportingAudit": 8,
+        "counterpartyDiversification": 3
+      },
+      "pros": [
+        "Backed by Standard Chartered — tier-1 bank pedigree",
+        "Northern Trust partnership",
+        "FCA registered",
+        "SOC 2 Type 2 certified",
+        "Growing global institutional presence"
+      ],
+      "cons": [
+        "Newer company (2020)",
+        "Institutional only — high minimums",
+        "Opaque pricing",
+        "Limited public information",
+        "Dependent on parent company strategy"
+      ],
+      "targetAudience": [
+        "Banks",
+        "Asset managers",
+        "Institutions",
+        "Family offices"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Institutional only",
+      "keyManagement": "Institutional custody backed by Standard Chartered and Northern Trust."
+    },
+    {
+      "id": "hex-trust",
+      "name": "Hex Trust",
+      "slug": "hex-trust",
+      "logo": "/logos/hex-trust.svg",
+      "website": "https://hextrust.com",
+      "founded": 2019,
+      "headquarters": "Hong Kong",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Hex Trust is a fully licensed digital asset custodian focused on the Asia-Pacific region. Licensed in Hong Kong, Singapore, and other APAC jurisdictions. Serves institutions, banks, and fintech companies across Asia.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "400+ assets"
+      ],
+      "fees": {
+        "setup": "Custom",
+        "custodyAnnual": "Custom",
+        "transaction": "Custom",
+        "withdrawal": "Network fees",
+        "notes": "Asia-Pacific focused with multi-jurisdiction licensing."
+      },
+      "insurance": {
+        "coverage": "Insurance coverage available",
+        "carrier": "Not publicly disclosed",
+        "details": "Institutional custody insurance."
+      },
+      "regulatory": {
+        "licenses": [
+          "Hong Kong TCSP license",
+          "Singapore MAS license"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Hong Kong / Singapore / APAC",
+        "details": "Licensed in multiple Asian jurisdictions."
+      },
+      "security": {
+        "keyManagementType": "MPC-based custody",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Multi-jurisdiction APAC licensing",
+        "400+ asset support",
+        "MPC technology",
+        "Staking and DeFi access",
+        "Bank-grade infrastructure",
+        "Tokenization services"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 6.5,
+        "regulatory": 8,
+        "feeTransparency": 5,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 7,
+        "reportingAudit": 7.5,
+        "counterpartyDiversification": 3
+      },
+      "pros": [
+        "Leading APAC digital asset custodian",
+        "Multi-jurisdiction licensing",
+        "SOC 2 Type 2 certified",
+        "Growing rapidly in Asia",
+        "Bank-grade infrastructure"
+      ],
+      "cons": [
+        "APAC focused — less Western presence",
+        "Newer company",
+        "Institutional only",
+        "Opaque pricing",
+        "Single custodian model"
+      ],
+      "targetAudience": [
+        "Asian institutions",
+        "Banks in APAC",
+        "Fintech companies",
+        "Fund managers"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Institutional only",
+      "keyManagement": "Licensed institutional custody with MPC technology."
+    },
+    {
+      "id": "komainu",
+      "name": "Komainu",
+      "slug": "komainu",
+      "logo": "/logos/komainu.svg",
+      "website": "https://komainu.com",
+      "founded": 2018,
+      "headquarters": "St. Helier, Jersey",
+      "custodyType": "qualified-custodian",
+      "custodyTypeLabel": "Qualified Custodian",
+      "description": "Komainu is a joint venture between Nomura (Japan's largest investment bank), Ledger, and CoinShares. Combines Nomura's institutional expertise, Ledger's hardware security, and CoinShares' crypto knowledge.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "Multiple assets"
+      ],
+      "fees": {
+        "setup": "Custom",
+        "custodyAnnual": "Custom",
+        "transaction": "Custom",
+        "withdrawal": "Network fees",
+        "notes": "Nomura + Ledger + CoinShares joint venture."
+      },
+      "insurance": {
+        "coverage": "Institutional coverage",
+        "carrier": "Via Nomura/partners",
+        "details": "Backed by Nomura — Japan's largest investment bank."
+      },
+      "regulatory": {
+        "licenses": [
+          "JFSC registered (Jersey)"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Jersey / Asia / Europe",
+        "details": "Regulated in Jersey. Nomura provides institutional credibility."
+      },
+      "security": {
+        "keyManagementType": "Ledger Vault enterprise custody",
+        "coldStoragePercent": "Majority cold",
+        "socCompliance": "SOC 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Nomura-backed",
+        "Ledger Vault technology",
+        "CoinShares crypto expertise",
+        "Asia/Europe institutional focus",
+        "Bank-grade compliance",
+        "Governance frameworks"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 7,
+        "regulatory": 8,
+        "feeTransparency": 4.5,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 6.5,
+        "reportingAudit": 7.5,
+        "counterpartyDiversification": 3.5
+      },
+      "pros": [
+        "Nomura backing — tier-1 investment bank",
+        "Ledger's proven hardware security",
+        "CoinShares' crypto market expertise",
+        "Strong Asia/Europe presence",
+        "JV model diversifies expertise"
+      ],
+      "cons": [
+        "Limited public information",
+        "Institutional only — very high minimums",
+        "Completely opaque pricing",
+        "Newer operation",
+        "Dependent on three parent companies aligning"
+      ],
+      "targetAudience": [
+        "Japanese institutions",
+        "European institutions",
+        "Banks",
+        "Asset managers"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "Institutional only",
+      "keyManagement": "Ledger Vault technology with Nomura institutional standards."
+    },
+    {
+      "id": "ledger-enterprise",
+      "name": "Ledger Enterprise",
+      "slug": "ledger-enterprise",
+      "logo": "/logos/ledger-enterprise.svg",
+      "website": "https://enterprise.ledger.com",
+      "founded": 2014,
+      "headquarters": "Paris, France",
+      "custodyType": "technology-provider",
+      "custodyTypeLabel": "Technology Provider",
+      "description": "Ledger Enterprise provides institutional-grade custody technology including MPC and governance solutions. Powers banks, exchanges, and financial institutions. Separate from Ledger's consumer hardware wallet business.",
+      "supportedAssets": [
+        "Bitcoin",
+        "Ethereum",
+        "1,800+ assets"
+      ],
+      "fees": {
+        "setup": "Enterprise pricing",
+        "custodyAnnual": "SaaS subscription",
+        "transaction": "Volume-based",
+        "withdrawal": "N/A (infrastructure provider)",
+        "notes": "Enterprise custody infrastructure. B2B SaaS model."
+      },
+      "insurance": {
+        "coverage": "N/A — infrastructure provider",
+        "carrier": "N/A",
+        "details": "Institutions using Ledger Enterprise arrange their own insurance."
+      },
+      "regulatory": {
+        "licenses": [
+          "Technology provider"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "France (EU) / Global",
+        "details": "Infrastructure provider. Regulatory compliance is on the institution."
+      },
+      "security": {
+        "keyManagementType": "Enterprise MPC + HSM",
+        "coldStoragePercent": "Configurable",
+        "socCompliance": "SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No enterprise custody incidents"
+      },
+      "features": [
+        "Enterprise MPC technology",
+        "HSM-based security",
+        "Configurable governance policies",
+        "1,800+ asset support",
+        "API-first platform",
+        "White-label solutions"
+      ],
+      "scores": {
+        "security": 9,
+        "insurance": 2,
+        "regulatory": 5,
+        "feeTransparency": 5,
+        "trackRecord": 8,
+        "withdrawalFlexibility": 7.5,
+        "reportingAudit": 7,
+        "counterpartyDiversification": 4
+      },
+      "pros": [
+        "Ledger brand — trusted hardware security heritage",
+        "Enterprise MPC technology",
+        "SOC 2 Type 2 certified",
+        "1,800+ asset support",
+        "Powers major financial institutions"
+      ],
+      "cons": [
+        "Technology provider, not custodian",
+        "Enterprise-only — no retail",
+        "Opaque pricing",
+        "Separate from consumer Ledger",
+        "Requires institutional integration"
+      ],
+      "targetAudience": [
+        "Banks",
+        "Exchanges",
+        "Custodians",
+        "Financial institutions"
+      ],
+      "aum": "Technology provider (not direct custody)",
+      "minAccount": "Enterprise only",
+      "keyManagement": "Enterprise MPC + governance platform. HSM-based. Configurable policies."
+    },
+    {
+      "id": "nunchuk",
+      "name": "Nunchuk",
+      "slug": "nunchuk",
+      "logo": "/logos/nunchuk.svg",
+      "website": "https://nunchuk.io",
+      "founded": 2020,
+      "headquarters": "Toronto, Canada",
+      "custodyType": "collaborative-custody",
+      "custodyTypeLabel": "Collaborative Custody",
+      "description": "Nunchuk is a collaborative Bitcoin multisig wallet supporting multiple key holders. Features inheritance planning, Taproot support, and flexible multisig configurations. Designed for families and teams managing Bitcoin together.",
+      "supportedAssets": [
+        "Bitcoin"
+      ],
+      "fees": {
+        "setup": "Free (basic) / $14.99/month (Premium) / Custom (Business)",
+        "custodyAnnual": "See setup (subscription model)",
+        "transaction": "No transaction fees",
+        "withdrawal": "Network fees only",
+        "notes": "Premium includes server-assisted keys and inheritance planning."
+      },
+      "insurance": {
+        "coverage": "Limited — collaborative custody model",
+        "carrier": "N/A",
+        "details": "Users hold their own keys. Nunchuk assists but doesn't insure."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Canada",
+        "details": "Canadian company. Not a custodian — provides wallet software."
+      },
+      "security": {
+        "keyManagementType": "Collaborative multisig wallet",
+        "coldStoragePercent": "100% (hardware wallets)",
+        "socCompliance": "N/A",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Collaborative multisig",
+        "Inheritance planning",
+        "Taproot support",
+        "Flexible key configurations",
+        "Team-based key management",
+        "Hardware wallet integration"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 2,
+        "regulatory": 3,
+        "feeTransparency": 9,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 4,
+        "counterpartyDiversification": 7
+      },
+      "pros": [
+        "Excellent multisig UX — genuinely easy",
+        "Flexible key configurations",
+        "Inheritance planning built-in",
+        "Taproot multisig support",
+        "Team-based wallet management"
+      ],
+      "cons": [
+        "Bitcoin only",
+        "Newer company",
+        "Not a custodian — software only",
+        "Premium features require subscription",
+        "Smaller community than Unchained/Casa"
+      ],
+      "targetAudience": [
+        "Families",
+        "Teams",
+        "Multi-sig users",
+        "Inheritance planners"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "No minimum",
+      "keyManagement": "Collaborative multisig. Flexible key configurations (2-of-3, 3-of-5, etc.)."
+    },
+    {
+      "id": "sparrow-wallet",
+      "name": "Sparrow Wallet",
+      "slug": "sparrow-wallet",
+      "logo": "/logos/sparrow-wallet.svg",
+      "website": "https://sparrowwallet.com",
+      "founded": 2020,
+      "headquarters": "Open Source",
+      "custodyType": "self-custody",
+      "custodyTypeLabel": "Self-Custody / Multisig",
+      "description": "Sparrow Wallet is a Bitcoin desktop wallet focused on security, privacy, and usability. Supports full node connection, hardware wallet integration, PSBT, coin control, and advanced privacy features like Whirlpool.",
+      "supportedAssets": [
+        "Bitcoin"
+      ],
+      "fees": {
+        "setup": "Free (open-source)",
+        "custodyAnnual": "None",
+        "transaction": "Network fees only",
+        "withdrawal": "Network fees only",
+        "notes": "Completely free and open-source. No account needed."
+      },
+      "insurance": {
+        "coverage": "None — self-custody software",
+        "carrier": "N/A",
+        "details": "Software wallet. No insurance. Full user responsibility."
+      },
+      "regulatory": {
+        "licenses": [
+          "N/A — open-source software"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "Decentralized",
+        "details": "Open-source project. No company registration needed."
+      },
+      "security": {
+        "keyManagementType": "Desktop wallet with hardware wallet support",
+        "coldStoragePercent": "100% (when used with hardware wallet)",
+        "socCompliance": "N/A",
+        "penetrationTesting": false,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Full node connection",
+        "Hardware wallet integration",
+        "PSBT support",
+        "Coin control",
+        "Whirlpool privacy",
+        "Multisig support"
+      ],
+      "scores": {
+        "security": 7.5,
+        "insurance": 1,
+        "regulatory": 1,
+        "feeTransparency": 10,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 9.5,
+        "reportingAudit": 2,
+        "counterpartyDiversification": 9
+      },
+      "pros": [
+        "Best Bitcoin desktop wallet UX",
+        "Full node connection for verification",
+        "Advanced privacy tools (Whirlpool)",
+        "Excellent multisig support",
+        "Completely free and open-source"
+      ],
+      "cons": [
+        "Desktop only — no mobile app",
+        "Requires technical knowledge",
+        "No company support",
+        "Not beginner-friendly",
+        "Software-only — needs hardware wallet for cold storage"
+      ],
+      "targetAudience": [
+        "Privacy advocates",
+        "Full node operators",
+        "Advanced Bitcoin users",
+        "Multi-sig users"
+      ],
+      "aum": "N/A (software wallet)",
+      "minAccount": "No minimum",
+      "keyManagement": "Desktop wallet with hardware wallet integration. Full node connection. PSBT support."
+    },
+    {
+      "id": "swan-bitcoin",
+      "name": "Swan Bitcoin",
+      "slug": "swan-bitcoin",
+      "logo": "/logos/swan-bitcoin.svg",
+      "website": "https://swanbitcoin.com",
+      "founded": 2019,
+      "headquarters": "Los Angeles, CA",
+      "custodyType": "exchange-custody",
+      "custodyTypeLabel": "Exchange Custody",
+      "description": "Swan Bitcoin is a Bitcoin-only savings platform specializing in dollar-cost averaging (DCA) and IRA accounts. Partners with Fortress Trust and BitGo for custody. Strong Bitcoin education and community focus.",
+      "supportedAssets": [
+        "Bitcoin only"
+      ],
+      "fees": {
+        "setup": "Free",
+        "custodyAnnual": "None (exchange) / 0.39% (IRA)",
+        "transaction": "0.99% (instant) / 0.49% (auto-DCA)",
+        "withdrawal": "Free auto-withdrawals",
+        "notes": "Automated DCA with competitive fees. IRA available. Free auto-withdrawal to own wallet."
+      },
+      "insurance": {
+        "coverage": "Via Fortress Trust / BitGo custody partners",
+        "carrier": "Via custody partners",
+        "details": "Custody through regulated partners with their own insurance."
+      },
+      "regulatory": {
+        "licenses": [
+          "FinCEN MSB",
+          "State licenses via partners"
+        ],
+        "qualifiedCustodian": false,
+        "jurisdiction": "United States",
+        "details": "US-based. Custody through Fortress Trust (regulated trust company)."
+      },
+      "security": {
+        "keyManagementType": "Fortress Trust / BitGo custody",
+        "coldStoragePercent": "Majority cold (via partners)",
+        "socCompliance": "Via partners",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Automated DCA",
+        "Bitcoin IRA",
+        "Free auto-withdrawal to own wallet",
+        "BitGo custody",
+        "Bitcoin education",
+        "Advisor services"
+      ],
+      "scores": {
+        "security": 7,
+        "insurance": 5.5,
+        "regulatory": 7,
+        "feeTransparency": 8,
+        "trackRecord": 6.5,
+        "withdrawalFlexibility": 8.5,
+        "reportingAudit": 6,
+        "counterpartyDiversification": 3.5
+      },
+      "pros": [
+        "Best Bitcoin DCA platform",
+        "Free auto-withdrawal to own wallet",
+        "Bitcoin IRA offering",
+        "Strong education and community",
+        "Aligned with Bitcoin-only ethos"
+      ],
+      "cons": [
+        "Higher fees than large exchanges",
+        "Bitcoin only — no altcoins",
+        "Dependent on custody partners",
+        "Newer company",
+        "Limited trading features"
+      ],
+      "targetAudience": [
+        "Bitcoin savers (DCA)",
+        "IRA investors",
+        "Bitcoin education seekers",
+        "Long-term accumulators"
+      ],
+      "aum": "Not publicly disclosed",
+      "minAccount": "$10 minimum",
+      "keyManagement": "Bitcoin savings platform with Fortress Trust / BitGo custody partnership."
+    },
+    {
+      "id": "ishares-bitcoin-trust",
+      "name": "iShares Bitcoin Trust (IBIT)",
+      "slug": "ishares-bitcoin-trust",
+      "logo": "/logos/ishares-bitcoin-trust.svg",
+      "website": "https://www.ishares.com/us/products/333011",
+      "founded": 2024,
+      "headquarters": "New York, NY (BlackRock)",
+      "custodyType": "etf-indirect",
+      "custodyTypeLabel": "ETF / Indirect Exposure",
+      "description": "iShares Bitcoin Trust (IBIT) by BlackRock is the largest Bitcoin ETF by AUM. Over $50B in assets within its first year. Custodied by Coinbase Custody. Offers regulated Bitcoin exposure through standard brokerage accounts.",
+      "supportedAssets": [
+        "Bitcoin (indirect via ETF shares)"
+      ],
+      "fees": {
+        "setup": "Standard brokerage commission",
+        "custodyAnnual": "0.25% expense ratio",
+        "transaction": "Brokerage commission (often $0)",
+        "withdrawal": "Sell shares like any ETF",
+        "notes": "0.25% annual expense ratio. No direct Bitcoin withdrawal."
+      },
+      "insurance": {
+        "coverage": "Standard ETF/brokerage protections. SIPC for brokerage accounts.",
+        "carrier": "SIPC (brokerage level)",
+        "details": "Shares are securities protected by SIPC. Underlying Bitcoin custodied by Coinbase."
+      },
+      "regulatory": {
+        "licenses": [
+          "SEC registered investment company",
+          "Nasdaq listed"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "SEC-regulated ETF. BlackRock is the world's largest asset manager ($10T+ AUM)."
+      },
+      "security": {
+        "keyManagementType": "Coinbase Custody (for underlying BTC)",
+        "coldStoragePercent": "98%+ (via Coinbase)",
+        "socCompliance": "BlackRock SOC + Coinbase SOC 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Largest Bitcoin ETF by AUM",
+        "BlackRock — world's largest asset manager",
+        "Coinbase Custody for underlying BTC",
+        "Trades on Nasdaq like a stock",
+        "Available in retirement accounts",
+        "0.25% expense ratio"
+      ],
+      "scores": {
+        "security": 8,
+        "insurance": 8,
+        "regulatory": 10,
+        "feeTransparency": 9,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 3,
+        "reportingAudit": 9.5,
+        "counterpartyDiversification": 2
+      },
+      "pros": [
+        "BlackRock — world's most trusted asset manager",
+        "Largest Bitcoin ETF — maximum liquidity",
+        "Available in IRAs and 401(k)s",
+        "0.25% expense ratio — competitive",
+        "SEC regulated — maximum compliance"
+      ],
+      "cons": [
+        "No direct Bitcoin ownership",
+        "Cannot withdraw actual Bitcoin",
+        "0.25% annual fee reduces returns",
+        "Dependent on Coinbase custody",
+        "Tracking error possible"
+      ],
+      "targetAudience": [
+        "Traditional investors",
+        "RIAs",
+        "Retirement accounts",
+        "Institutional allocators"
+      ],
+      "aum": "$50B+ AUM",
+      "minAccount": "1 share (~$50)",
+      "keyManagement": "ETF structure. Bitcoin custodied by Coinbase Custody. Shares trade on Nasdaq."
+    },
+    {
+      "id": "fidelity-wise-origin",
+      "name": "Fidelity Wise Origin Bitcoin Fund (FBTC)",
+      "slug": "fidelity-wise-origin",
+      "logo": "/logos/fidelity-wise-origin.svg",
+      "website": "https://www.fidelity.com/crypto/bitcoin-etf",
+      "founded": 2024,
+      "headquarters": "Boston, MA (Fidelity)",
+      "custodyType": "etf-indirect",
+      "custodyTypeLabel": "ETF / Indirect Exposure",
+      "description": "Fidelity Wise Origin Bitcoin Fund (FBTC) is unique because Fidelity self-custodies the underlying Bitcoin through Fidelity Digital Assets. Eliminates dependence on third-party custodians. Second-largest Bitcoin ETF by AUM.",
+      "supportedAssets": [
+        "Bitcoin (indirect via ETF shares)"
+      ],
+      "fees": {
+        "setup": "Standard brokerage commission",
+        "custodyAnnual": "0.25% expense ratio",
+        "transaction": "Brokerage commission (often $0)",
+        "withdrawal": "Sell shares like any ETF",
+        "notes": "0.25% expense ratio. Self-custodied by Fidelity."
+      },
+      "insurance": {
+        "coverage": "Standard ETF/brokerage protections. SIPC for brokerage accounts.",
+        "carrier": "SIPC + Fidelity Digital Assets insurance",
+        "details": "Self-custodied by Fidelity Digital Assets with up to $1B insurance."
+      },
+      "regulatory": {
+        "licenses": [
+          "SEC registered",
+          "Listed on CBOE"
+        ],
+        "qualifiedCustodian": true,
+        "jurisdiction": "United States",
+        "details": "SEC-regulated ETF. Fidelity is one of the world's largest financial institutions ($14T+ AUM)."
+      },
+      "security": {
+        "keyManagementType": "Self-custodied by Fidelity Digital Assets",
+        "coldStoragePercent": "Vast majority cold",
+        "socCompliance": "Fidelity SOC 2 Type 2",
+        "penetrationTesting": true,
+        "incidentHistory": "No incidents"
+      },
+      "features": [
+        "Self-custodied — no third-party custodian",
+        "Fidelity — $14T+ AUM parent",
+        "Second-largest Bitcoin ETF",
+        "Up to $1B insurance on custody",
+        "Available in Fidelity retirement accounts",
+        "0.25% expense ratio"
+      ],
+      "scores": {
+        "security": 8.5,
+        "insurance": 9,
+        "regulatory": 10,
+        "feeTransparency": 9,
+        "trackRecord": 7,
+        "withdrawalFlexibility": 3,
+        "reportingAudit": 9.5,
+        "counterpartyDiversification": 2.5
+      },
+      "pros": [
+        "Self-custodied — only major ETF not using third-party",
+        "Fidelity — $14T+ AUM parent company",
+        "Up to $1B insurance on underlying Bitcoin",
+        "Available in Fidelity retirement accounts",
+        "Eliminates third-party custodian risk"
+      ],
+      "cons": [
+        "No direct Bitcoin ownership",
+        "Cannot withdraw actual Bitcoin",
+        "0.25% annual fee reduces returns",
+        "Newer ETF product (2024)",
+        "Dependent on single custodian (Fidelity)"
+      ],
+      "targetAudience": [
+        "Fidelity customers",
+        "Self-custody ETF seekers",
+        "RIAs",
+        "Retirement account holders"
+      ],
+      "aum": "$20B+ AUM",
+      "minAccount": "1 share (~$80)",
+      "keyManagement": "ETF structure. Unique: self-custodied by Fidelity Digital Assets (not outsourced)."
+    }
+  ]
+}
