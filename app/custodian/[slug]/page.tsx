@@ -31,7 +31,7 @@ export async function generateMetadata({
   }
   return {
     title: `${provider.name} Review 2026 — Fees, Security & Custody Score`,
-    description: `Independent ${provider.name} custody review. Custody Score ${calculateCustodyScore(provider.scores)}/10 across security, fees, insurance & more.`,
+    description: `${provider.name} custody review on a published methodology. Custody Score ${calculateCustodyScore(provider.scores)}/10 across security, fees, insurance & more.`,
   }
 }
 
@@ -164,6 +164,11 @@ export default async function CustodianPage({
               <p className="mt-2 text-sm leading-relaxed text-text-body">
                 {provider.description}
               </p>
+              {provider.disclosure && (
+                <p className="mt-3 rounded-md border border-brand/30 bg-brand/5 px-3 py-2 text-xs leading-relaxed text-text-body">
+                  <strong className="text-text-heading">Disclosure:</strong> {provider.disclosure}
+                </p>
+              )}
               <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm text-text-body">
                 <span>
                   <strong className="text-text-heading">Founded:</strong> {provider.founded}

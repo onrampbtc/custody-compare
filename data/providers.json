@@ -4,7 +4,9 @@
     "lastUpdated": "2026-02-12",
     "scoringVersion": "1.0",
     "totalProviders": 36,
-    "notes": "Fees and details should be verified directly with each provider before publishing. Data sourced from public websites, documentation, and third-party reviews as of Feb 2026."
+    "notes": "Fees and details should be verified directly with each provider before publishing. Data sourced from public websites, documentation, and third-party reviews as of Feb 2026.",
+    "operatedBy": "The team behind Onramp Bitcoin, one of the custodians scored on this site",
+    "disclosure": "CustodyCompare is operated by the team behind Onramp Bitcoin, which is scored here by the same published methodology as every other provider."
   },
   "scoringWeights": {
     "security": 0.2,
@@ -45,7 +47,7 @@
       "id": "self-custody",
       "name": "Self-Custody / Multisig",
       "shortDescription": "You hold your own private keys using hardware wallets and multisignature setups. Maximum sovereignty, maximum responsibility.",
-      "longDescription": "Self-custody means you control your own private keys — 'not your keys, not your coins.' Modern self-custody solutions use multisignature (multisig) technology where multiple keys are required to move funds, reducing the risk of single key loss. Collaborative custody models add a trusted third party who holds one key as a backup.",
+      "longDescription": "Self-custody means you control your own private keys \u2014 'not your keys, not your coins.' Modern self-custody solutions use multisignature (multisig) technology where multiple keys are required to move funds, reducing the risk of single key loss. Collaborative custody models add a trusted third party who holds one key as a backup.",
       "bestFor": [
         "Technically proficient individuals",
         "Privacy-focused holders",
@@ -69,7 +71,7 @@
       "id": "exchange-custody",
       "name": "Exchange Custody",
       "shortDescription": "Bitcoin held on a cryptocurrency exchange. Convenient for trading but introduces significant counterparty risk.",
-      "longDescription": "Exchange custody is the most common form — you buy Bitcoin on an exchange and leave it there. The exchange controls your private keys. This is convenient for active traders but introduces counterparty risk: if the exchange is hacked, goes bankrupt, or freezes withdrawals, you may lose access to your funds. FTX, Mt. Gox, and Celsius are cautionary examples.",
+      "longDescription": "Exchange custody is the most common form \u2014 you buy Bitcoin on an exchange and leave it there. The exchange controls your private keys. This is convenient for active traders but introduces counterparty risk: if the exchange is hacked, goes bankrupt, or freezes withdrawals, you may lose access to your funds. FTX, Mt. Gox, and Celsius are cautionary examples.",
       "bestFor": [
         "Active traders",
         "Small holdings",
@@ -203,7 +205,7 @@
         "API-first architecture"
       ],
       "cons": [
-        "Not direct custody — infrastructure only",
+        "Not direct custody \u2014 infrastructure only",
         "Enterprise-only pricing",
         "Requires integration effort",
         "Not for individual users",
@@ -217,59 +219,56 @@
       "name": "Onramp",
       "slug": "onramp",
       "logo": "/logos/onramp.svg",
-      "website": "https://onramp.investments",
-      "founded": 2021,
+      "website": "https://onrampbitcoin.com",
+      "founded": 2023,
       "headquarters": "Austin, TX",
       "custodyType": "multi-institution",
       "custodyTypeLabel": "Multi-Institution Custody",
-      "description": "Onramp provides Multi-Institution Custody (MIC) that distributes Bitcoin across multiple independent regulated custodians. Rather than trusting a single entity, assets are spread across institutions so no single point of failure can compromise holdings.",
+      "description": "Onramp Bitcoin offers Multi-Institution Custody for individuals, IRAs and businesses. Three institutions protect each vault; no one of them can lose it, move it, or use it, and nothing moves without the client's permission. Onramp also offers a free Finance tier with buying, selling and bitcoin-backed loans. Facts below are from onrampbitcoin.com as of 1 Nov 2026.",
       "targetAudience": [
         "Family offices",
         "RIAs",
         "HNW individuals",
         "Institutions"
       ],
-      "aum": "$1B+",
-      "minAccount": "$100,000",
+      "aum": "Billions in client bitcoin, per onrampbitcoin.com (Nov 2026)",
+      "minAccount": "No stated minimum. Core tier from $250/month; Private from 0.04%/month; Business $375/month plus $500 setup; Finance $0 (onrampbitcoin.com/pricing, 1 Nov 2026)",
       "supportedAssets": [
         "Bitcoin"
       ],
-      "keyManagement": "Multi-institution distributed custody — keys and assets spread across multiple independent regulated custodians (BitGo, Coinbase, Fidelity, etc.)",
+      "keyManagement": "Multi-Institution Custody: each vault is protected by three independent institutions drawn from a network of four (Onramp, BitGo Trust, CoinCover, Tetra Trust). Individual and IRA vaults use Onramp, BitGo Trust and CoinCover; business vaults use Onramp, Tetra Trust and CoinCover. It takes two of the three institutions to move bitcoin, and the client never handles a key, seed phrase or hardware wallet.",
       "fees": {
-        "setup": "Contact for pricing",
-        "custodyAnnual": "Contact for pricing",
-        "transaction": "0.50% per trade (brokerage)",
-        "withdrawal": "Contact for pricing",
-        "notes": "Also offers Onramp Finance: lowest-cost Bitcoin brokerage at 50bps, 5% APY on cash, 1.5% cashback card"
+        "setup": "$0 for individual tiers; $500 for Business",
+        "custodyAnnual": "Core $250/month ($3,000/year); Private from 0.04%/month; Business $375/month; Finance $0",
+        "transaction": "Tiered trade fees; see onrampbitcoin.com/pricing",
+        "withdrawal": "Not published as a separate fee",
+        "notes": "IRA available as an add-on at $100/month. Pricing as of 1 Nov 2026; verify on onrampbitcoin.com/pricing."
       },
       "insurance": {
-        "coverage": "Aggregate coverage across multiple custodian insurance policies",
-        "carrier": "Multiple (via underlying custodians)",
-        "details": "Each underlying custodian maintains their own insurance. Combined coverage exceeds single-custodian limits."
+        "coverage": "Up to $50 million in aggregate across Onramp's custody operations",
+        "carrier": "Canopius, a Lloyd's of London syndicate",
+        "details": "Onramp pays the premium. This is an aggregate limit across Onramp's custody operations, not per-vault coverage. Source: onrampbitcoin.com/products/custody-insurance, Nov 2026."
       },
       "regulatory": {
-        "licenses": [
-          "State money transmitter licenses"
-        ],
-        "qualifiedCustodian": true,
+        "licenses": [],
+        "qualifiedCustodian": false,
         "jurisdiction": "United States",
-        "details": "Regulated through underlying custodian partnerships with qualified custodians"
+        "details": "Onramp is not itself a qualified custodian. The regulated keyholders in the arrangement are BitGo Trust Company (South Dakota-chartered trust company) and Tetra Trust (Canada); CoinCover is the third institution."
       },
       "security": {
-        "keyManagementType": "Multi-institution distributed",
-        "coldStoragePercent": "Varies by underlying custodian",
-        "socCompliance": "Via underlying custodians (SOC 1 & SOC 2)",
-        "penetrationTesting": true,
-        "incidentHistory": "No incidents"
+        "keyManagementType": "Multi-institution, two of three institutions to move funds",
+        "coldStoragePercent": "Not published",
+        "socCompliance": "Onramp states SOC 2 Type I compliance (onrampbitcoin.com, Nov 2026)",
+        "penetrationTesting": "Not published",
+        "incidentHistory": "None recorded in the Proof of Custody failure registry as of 1 Nov 2026"
       },
       "features": [
-        "Multi-Institution Custody across multiple regulated custodians",
-        "No single point of failure",
-        "Institutional-grade security and compliance",
-        "Bitcoin brokerage services (Onramp Finance)",
-        "5% APY on cash balances",
-        "1.5% cashback card",
-        "White-glove onboarding for institutions"
+        "Multi-Institution Custody vaults for individuals, IRAs and businesses",
+        "No single institution can move funds alone",
+        "Inheritance planning and Guardian Plus",
+        "Real-time proof of reserves",
+        "Bitcoin-backed loans and buying and selling on the Finance tier",
+        "Business accounts with user management, account controls and approvals"
       ],
       "scores": {
         "security": 9.5,
@@ -282,23 +281,24 @@
         "counterpartyDiversification": 10
       },
       "pros": [
-        "Only provider offering true multi-institution custody — no single point of failure",
-        "Aggregated insurance coverage exceeds any single custodian",
-        "$1B+ in assets under custody demonstrates institutional trust",
-        "Integrated brokerage with lowest Bitcoin buy fees (50bps)",
-        "Cash yield (5% APY) and cashback card add value beyond custody"
+        "Three independent institutions protect each vault; no single point of failure at the institution level",
+        "Custody insurance through a Lloyd's syndicate, stated with its limit and basis",
+        "The client never handles a key, which suits holders whose heirs cannot run a hardware wallet",
+        "Published monthly pricing with a free entry tier"
       ],
       "cons": [
-        "$100K minimum may exclude smaller investors",
-        "Bitcoin-only (no altcoins)",
-        "Newer company (founded 2021) vs established players",
-        "Pricing not fully transparent on website — requires contact"
+        "Institutional fee floors (Core $250/month) are heavy for small holdings",
+        "Bitcoin only",
+        "Launched 2023; a shorter track record than the oldest custodians",
+        "Every withdrawal needs more than one institution to act, so it is built for holding rather than frequent trading",
+        "The operator of this comparison site is the team behind Onramp; see the disclosure"
       ],
       "competitorComparisons": {
         "bitgo": "Onramp uses BitGo as one of multiple custodians, while BitGo acts as a single custodian. Onramp adds diversification layer.",
         "coinbase-custody": "Coinbase Custody is one institution. Onramp distributes across Coinbase AND others, eliminating single-custodian risk.",
-        "unchained": "Unchained is collaborative 2-of-3 multisig where you hold keys. Onramp is institutional multi-custodian — different model for different users."
-      }
+        "unchained": "Unchained is collaborative 2-of-3 multisig where you hold keys. Onramp is institutional multi-custodian \u2014 different model for different users."
+      },
+      "disclosure": "CustodyCompare is operated by the team behind Onramp Bitcoin. Onramp is scored on this site by the same published methodology as every other provider, and this record was corrected on 1 Nov 2026 against onrampbitcoin.com."
     },
     {
       "id": "bitgo",
@@ -327,7 +327,7 @@
       "keyManagement": "Multi-signature (2-of-3) with optional MPC. Keys split between client and BitGo.",
       "fees": {
         "setup": "Varies by plan",
-        "custodyAnnual": "Based on AUM — tiered pricing",
+        "custodyAnnual": "Based on AUM \u2014 tiered pricing",
         "transaction": "Varies",
         "withdrawal": "Network fees",
         "notes": "Enterprise pricing available. BitGo Go for smaller clients."
@@ -380,7 +380,7 @@
         "700+ token support for diversified portfolios"
       ],
       "cons": [
-        "Single custodian — assets concentrated with one entity",
+        "Single custodian \u2014 assets concentrated with one entity",
         "Pricing not transparent (requires sales contact)",
         "Complex onboarding for smaller clients",
         "MPC key management adds complexity"
@@ -413,7 +413,7 @@
       "keyManagement": "Proprietary cold storage with multi-layer security. Air-gapped signing infrastructure.",
       "fees": {
         "setup": "$10,000 one-time",
-        "custodyAnnual": "0.50% AUM (50bps) — tiered for large balances",
+        "custodyAnnual": "0.50% AUM (50bps) \u2014 tiered for large balances",
         "transaction": "Varies",
         "withdrawal": "Network fees + processing fee",
         "notes": "Pricing negotiable for large institutional clients. ETF custodian arrangements have separate terms."
@@ -421,7 +421,7 @@
       "insurance": {
         "coverage": "Significant coverage (exact amount not publicly disclosed)",
         "carrier": "Multiple carriers",
-        "details": "Crime insurance covering theft from breach of physical or cyber security. Coinbase publicly listed — financial transparency via SEC filings."
+        "details": "Crime insurance covering theft from breach of physical or cyber security. Coinbase publicly listed \u2014 financial transparency via SEC filings."
       },
       "regulatory": {
         "licenses": [
@@ -458,16 +458,16 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Custodian for BlackRock, Fidelity, and other major ETFs — ultimate institutional validation",
-        "Publicly traded company — financial transparency via SEC filings",
+        "Custodian for BlackRock, Fidelity, and other major ETFs \u2014 ultimate institutional validation",
+        "Publicly traded company \u2014 financial transparency via SEC filings",
         "SOC 1 & SOC 2 Type 2 compliant",
         "Deep regulatory track record",
         "Integrated trading via Coinbase Prime"
       ],
       "cons": [
-        "Single custodian — all eggs in one basket",
+        "Single custodian \u2014 all eggs in one basket",
         "$500K minimum and $10K setup fee",
-        "Exchange and custody are same entity — correlated risk",
+        "Exchange and custody are same entity \u2014 correlated risk",
         "Custody fees at 50bps are higher than some competitors"
       ]
     },
@@ -489,7 +489,7 @@
         "Pension funds"
       ],
       "aum": "Not publicly disclosed (Fidelity overall: $14T+)",
-      "minAccount": "Institutional only — contact for details",
+      "minAccount": "Institutional only \u2014 contact for details",
       "supportedAssets": [
         "Bitcoin",
         "Ethereum"
@@ -541,18 +541,18 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Backed by Fidelity — $14T+ AUM parent company",
-        "Up to $1B insurance coverage — industry-leading",
+        "Backed by Fidelity \u2014 $14T+ AUM parent company",
+        "Up to $1B insurance coverage \u2014 industry-leading",
         "National trust bank charter (OCC regulated)",
-        "Custodian for FBTC — one of the largest Bitcoin ETFs",
+        "Custodian for FBTC \u2014 one of the largest Bitcoin ETFs",
         "Unmatched institutional credibility"
       ],
       "cons": [
-        "Single custodian — same single-point-of-failure risk as others",
+        "Single custodian \u2014 same single-point-of-failure risk as others",
         "Very limited asset support (BTC, ETH only for institutional custody)",
-        "Pricing completely opaque — requires institutional relationship",
+        "Pricing completely opaque \u2014 requires institutional relationship",
         "Retail platform charges 1% spread (high)",
-        "Institutional-only — not accessible to smaller investors"
+        "Institutional-only \u2014 not accessible to smaller investors"
       ]
     },
     {
@@ -565,7 +565,7 @@
       "headquarters": "Austin, TX",
       "custodyType": "collaborative-custody",
       "custodyTypeLabel": "Collaborative Custody",
-      "description": "Unchained provides collaborative multisig custody where clients hold 2 of 3 keys and Unchained holds 1. This means clients maintain full control — they can always move funds without Unchained's permission — while having a professional backup key holder for recovery and inheritance.",
+      "description": "Unchained provides collaborative multisig custody where clients hold 2 of 3 keys and Unchained holds 1. This means clients maintain full control \u2014 they can always move funds without Unchained's permission \u2014 while having a professional backup key holder for recovery and inheritance.",
       "targetAudience": [
         "HNW individuals",
         "Families",
@@ -586,7 +586,7 @@
         "notes": "Also offers Bitcoin-backed loans. IRA custody available at additional cost."
       },
       "insurance": {
-        "coverage": "Limited — Unchained's key is insured but client keys are client's responsibility",
+        "coverage": "Limited \u2014 Unchained's key is insured but client keys are client's responsibility",
         "carrier": "Not publicly disclosed",
         "details": "Because client holds majority of keys, insurance model is different from full-custodian solutions. Client bears primary responsibility for key security."
       },
@@ -596,7 +596,7 @@
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "United States",
-        "details": "Not a qualified custodian in the SEC sense — by design, since the client holds majority of keys. This is a feature, not a bug, for self-sovereignty advocates."
+        "details": "Not a qualified custodian in the SEC sense \u2014 by design, since the client holds majority of keys. This is a feature, not a bug, for self-sovereignty advocates."
       },
       "security": {
         "keyManagementType": "2-of-3 collaborative multisig",
@@ -625,7 +625,7 @@
         "counterpartyDiversification": 6
       },
       "pros": [
-        "Client always maintains control — can move funds without Unchained",
+        "Client always maintains control \u2014 can move funds without Unchained",
         "Excellent for inheritance planning",
         "Very transparent, affordable pricing ($250-1,200/year)",
         "Bitcoin-only focus aligns with Bitcoin ethos",
@@ -636,7 +636,7 @@
         "Not a qualified custodian (matters for RIAs/fiduciaries)",
         "Limited insurance coverage",
         "Requires hardware wallet knowledge",
-        "Only Unchained holds the backup key — still some single-provider dependence"
+        "Only Unchained holds the backup key \u2014 still some single-provider dependence"
       ]
     },
     {
@@ -671,7 +671,7 @@
         "notes": "Diamond tier includes dedicated advisor, custom security review, and Covenant inheritance protocol."
       },
       "insurance": {
-        "coverage": "Limited — similar to Unchained model. Client bears primary key responsibility.",
+        "coverage": "Limited \u2014 similar to Unchained model. Client bears primary key responsibility.",
         "carrier": "Not publicly disclosed",
         "details": "Casa insures their own key. Client keys are client responsibility. Casa Covenant provides inheritance recovery mechanism."
       },
@@ -681,7 +681,7 @@
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "United States",
-        "details": "Not a qualified custodian — self-custody model. Registered as money services business."
+        "details": "Not a qualified custodian \u2014 self-custody model. Registered as money services business."
       },
       "security": {
         "keyManagementType": "Collaborative multisig (2-of-3 or 3-of-5)",
@@ -710,15 +710,15 @@
         "counterpartyDiversification": 6.5
       },
       "pros": [
-        "Best-in-class UX for self-custody — genuinely easy to use",
+        "Best-in-class UX for self-custody \u2014 genuinely easy to use",
         "3-of-5 multisig is one of the most secure consumer setups available",
         "Casa Covenant solves the inheritance problem elegantly",
-        "Founded by Jameson Lopp — one of the most respected Bitcoin security researchers",
-        "No minimum balance — accessible to all"
+        "Founded by Jameson Lopp \u2014 one of the most respected Bitcoin security researchers",
+        "No minimum balance \u2014 accessible to all"
       ],
       "cons": [
         "Not a qualified custodian",
-        "Limited insurance — you're responsible for your keys",
+        "Limited insurance \u2014 you're responsible for your keys",
         "Monthly subscription model adds up over time",
         "Supports ETH in addition to BTC (purists may dislike)",
         "Premium tiers needed for best security features"
@@ -795,15 +795,15 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Only federally chartered digital asset bank — highest US regulatory status",
+        "Only federally chartered digital asset bank \u2014 highest US regulatory status",
         "Trusted by Visa, Samsung, and other blue-chip institutions",
         "SOC 2 Type 2 compliant",
         "Full suite: custody + trading + staking + DeFi",
         "Biometric security is unique in the market"
       ],
       "cons": [
-        "Single custodian — all assets with one entity",
-        "Institutional only — no retail access",
+        "Single custodian \u2014 all assets with one entity",
+        "Institutional only \u2014 no retail access",
         "Completely opaque pricing",
         "Limited information publicly available",
         "High barrier to entry"
@@ -819,7 +819,7 @@
       "headquarters": "New York, NY",
       "custodyType": "qualified-custodian",
       "custodyTypeLabel": "Qualified Custodian",
-      "description": "Gemini Custody is the institutional cold storage solution from Gemini, the Winklevoss twins' cryptocurrency exchange. SOC 1 and SOC 2 Type 2 certified — the first crypto exchange to achieve both. Offers cold storage custody with insurance.",
+      "description": "Gemini Custody is the institutional cold storage solution from Gemini, the Winklevoss twins' cryptocurrency exchange. SOC 1 and SOC 2 Type 2 certified \u2014 the first crypto exchange to achieve both. Offers cold storage custody with insurance.",
       "targetAudience": [
         "Institutions",
         "Funds",
@@ -836,7 +836,7 @@
       "keyManagement": "Proprietary cold storage system with HSMs and multi-layer security protocols.",
       "fees": {
         "setup": "Contact for pricing",
-        "custodyAnnual": "0.40% AUM annually (40bps) — tiered",
+        "custodyAnnual": "0.40% AUM annually (40bps) \u2014 tiered",
         "transaction": "Varies by volume",
         "withdrawal": "Network fees",
         "notes": "Lower than Coinbase Custody's 50bps for comparable service."
@@ -889,7 +889,7 @@
         "Good asset diversity (70+ tokens)"
       ],
       "cons": [
-        "Single custodian — concentrated risk",
+        "Single custodian \u2014 concentrated risk",
         "Gemini Earn issues in 2022 damaged brand trust",
         "Exchange and custody are same entity",
         "Insurance details somewhat opaque for cold storage",
@@ -966,9 +966,9 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Owned by ICE (NYSE parent) — unmatched traditional finance pedigree",
+        "Owned by ICE (NYSE parent) \u2014 unmatched traditional finance pedigree",
         "NYDFS qualified custodian",
-        "Publicly traded — financial transparency",
+        "Publicly traded \u2014 financial transparency",
         "Multi-zone physical storage",
         "Does not lend or rehypothecate client assets"
       ],
@@ -1013,13 +1013,13 @@
         "notes": "Fireblocks is infrastructure, not a direct custodian. Pricing is B2B SaaS. End users don't interact with Fireblocks directly."
       },
       "insurance": {
-        "coverage": "Not applicable directly — provides technology, not custodial services",
+        "coverage": "Not applicable directly \u2014 provides technology, not custodial services",
         "carrier": "N/A",
         "details": "Institutions using Fireblocks arrange their own insurance. Fireblocks provides the secure infrastructure layer."
       },
       "regulatory": {
         "licenses": [
-          "Technology provider — regulatory compliance is on the institution using Fireblocks"
+          "Technology provider \u2014 regulatory compliance is on the institution using Fireblocks"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Global",
@@ -1052,16 +1052,16 @@
         "counterpartyDiversification": 4
       },
       "pros": [
-        "Industry-leading MPC technology — no single private key ever exists",
+        "Industry-leading MPC technology \u2014 no single private key ever exists",
         "Powers 1,800+ institutions and $6T+ in transfers",
         "SOC 2 Type 2 certified",
-        "1,500+ token support — broadest in the industry",
-        "Extremely flexible — configurable for any custody model"
+        "1,500+ token support \u2014 broadest in the industry",
+        "Extremely flexible \u2014 configurable for any custody model"
       ],
       "cons": [
-        "Not a custodian itself — requires pairing with regulated entity",
+        "Not a custodian itself \u2014 requires pairing with regulated entity",
         "No direct insurance (infrastructure provider)",
-        "Enterprise-only — no retail access",
+        "Enterprise-only \u2014 no retail access",
         "Complex to evaluate since it's a technology layer",
         "Opaque pricing"
       ]
@@ -1090,13 +1090,13 @@
         "notes": "One-time device cost. No ongoing fees. Free Ledger Live software."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Users are fully responsible for their own security and backup."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "France (EU)",
@@ -1129,7 +1129,7 @@
       },
       "pros": [
         "World's most popular hardware wallet",
-        "Secure element chip — bank-grade security",
+        "Secure element chip \u2014 bank-grade security",
         "5,500+ supported assets",
         "Ledger Live ecosystem",
         "Bluetooth connectivity (Nano X)"
@@ -1175,17 +1175,17 @@
         "notes": "One-time purchase. Fully open-source. Free Trezor Suite software."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Czech Republic (EU)",
-        "details": "SatoshiLabs — consumer electronics."
+        "details": "SatoshiLabs \u2014 consumer electronics."
       },
       "security": {
         "keyManagementType": "Open-source hardware wallet",
@@ -1213,7 +1213,7 @@
         "counterpartyDiversification": 9
       },
       "pros": [
-        "First hardware wallet — longest track record",
+        "First hardware wallet \u2014 longest track record",
         "Fully open-source firmware and software",
         "Shamir backup for better key security",
         "Trezor Suite with Tor integration",
@@ -1258,13 +1258,13 @@
         "notes": "Bitcoin-only by design. Air-gapped signing via microSD."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Canada",
@@ -1303,7 +1303,7 @@
         "Dice roll for true randomness"
       ],
       "cons": [
-        "Bitcoin only — no altcoins",
+        "Bitcoin only \u2014 no altcoins",
         "Not beginner-friendly",
         "No mobile app companion",
         "Utilitarian design",
@@ -1343,17 +1343,17 @@
         "notes": "Swiss quality. Bitcoin-only edition available for maximalists."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Switzerland",
-        "details": "Shift Crypto AG — Swiss-registered company."
+        "details": "Shift Crypto AG \u2014 Swiss-registered company."
       },
       "security": {
         "keyManagementType": "Dual-chip hardware wallet",
@@ -1388,7 +1388,7 @@
         "Excellent minimalist design"
       ],
       "cons": [
-        "Newer brand — less established",
+        "Newer brand \u2014 less established",
         "Smaller community",
         "Limited third-party integrations",
         "No Bluetooth",
@@ -1426,13 +1426,13 @@
         "notes": "Premium device. Air-gapped via QR codes and microSD."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "United States",
@@ -1510,17 +1510,17 @@
         "notes": "Most affordable quality hardware wallet. Blockstream Green integration."
       },
       "insurance": {
-        "coverage": "None — self-custody hardware",
+        "coverage": "None \u2014 self-custody hardware",
         "carrier": "N/A",
         "details": "Hardware wallet. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — hardware manufacturer"
+          "N/A \u2014 hardware manufacturer"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Canada",
-        "details": "Blockstream Corporation — major Bitcoin infrastructure company."
+        "details": "Blockstream Corporation \u2014 major Bitcoin infrastructure company."
       },
       "security": {
         "keyManagementType": "Virtual secure element hardware wallet",
@@ -1581,7 +1581,7 @@
       "headquarters": "Open Source",
       "custodyType": "cold-storage",
       "custodyTypeLabel": "Cold Storage / Hardware",
-      "description": "SeedSigner is a DIY air-gapped Bitcoin signing device built from off-the-shelf Raspberry Pi components. Completely open-source. Stateless design — never stores keys. Camera-based QR code signing. Community-driven project.",
+      "description": "SeedSigner is a DIY air-gapped Bitcoin signing device built from off-the-shelf Raspberry Pi components. Completely open-source. Stateless design \u2014 never stores keys. Camera-based QR code signing. Community-driven project.",
       "supportedAssets": [
         "Bitcoin only"
       ],
@@ -1593,13 +1593,13 @@
         "notes": "Build it yourself from off-the-shelf components. Truly zero trust."
       },
       "insurance": {
-        "coverage": "None — DIY self-custody",
+        "coverage": "None \u2014 DIY self-custody",
         "carrier": "N/A",
         "details": "DIY project. No company behind it. No insurance possible."
       },
       "regulatory": {
         "licenses": [
-          "N/A — open-source project"
+          "N/A \u2014 open-source project"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Decentralized / Open Source",
@@ -1613,7 +1613,7 @@
         "incidentHistory": "No known compromises"
       },
       "features": [
-        "Stateless — never stores keys",
+        "Stateless \u2014 never stores keys",
         "DIY from off-the-shelf parts",
         "Camera-based QR signing",
         "Dice roll entropy",
@@ -1631,14 +1631,14 @@
         "counterpartyDiversification": 10
       },
       "pros": [
-        "Stateless — keys never stored on device",
+        "Stateless \u2014 keys never stored on device",
         "Build from off-the-shelf components",
         "Zero supply chain attack surface",
         "Cheapest air-gapped signing solution",
         "Ultimate sovereignty and transparency"
       ],
       "cons": [
-        "DIY only — no pre-built option",
+        "DIY only \u2014 no pre-built option",
         "Not user-friendly at all",
         "No company support",
         "Requires significant technical skill",
@@ -1720,13 +1720,13 @@
       },
       "pros": [
         "13+ year track record with zero major breaches",
-        "Proof of reserves — verified by third party",
+        "Proof of reserves \u2014 verified by third party",
         "95%+ assets in cold storage",
         "Competitive trading fees",
         "Global regulatory compliance"
       ],
       "cons": [
-        "Exchange custody — you don't hold keys",
+        "Exchange custody \u2014 you don't hold keys",
         "Insurance details not public",
         "US regulatory uncertainty",
         "Single custodian risk",
@@ -1808,7 +1808,7 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Publicly traded — maximum transparency",
+        "Publicly traded \u2014 maximum transparency",
         "Custodian for BlackRock and other ETFs",
         "98%+ cold storage",
         "Most regulated US exchange",
@@ -1816,7 +1816,7 @@
       ],
       "cons": [
         "High fees on Simple interface (~1.5%)",
-        "Exchange custody — you don't hold keys",
+        "Exchange custody \u2014 you don't hold keys",
         "Customer support complaints",
         "Single custodian risk",
         "2021 phishing-related account compromises"
@@ -1867,7 +1867,7 @@
         ],
         "qualifiedCustodian": true,
         "jurisdiction": "United States",
-        "details": "NY Trust Company charter — highest US regulatory standard for crypto."
+        "details": "NY Trust Company charter \u2014 highest US regulatory standard for crypto."
       },
       "security": {
         "keyManagementType": "Institutional hot/cold custody",
@@ -1895,7 +1895,7 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "NY Trust Company — highest regulatory standard",
+        "NY Trust Company \u2014 highest regulatory standard",
         "SOC 2 Type 2 certified",
         "$200M+ disclosed insurance",
         "10 free crypto withdrawals per month",
@@ -1982,7 +1982,7 @@
         "counterpartyDiversification": 3
       },
       "pros": [
-        "13+ year track record — among oldest exchanges",
+        "13+ year track record \u2014 among oldest exchanges",
         "Luxembourg banking license",
         "Competitive fee structure",
         "Strong European presence",
@@ -2066,7 +2066,7 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Bitcoin-only — aligned with Bitcoin ethos",
+        "Bitcoin-only \u2014 aligned with Bitcoin ethos",
         "Zero-fee recurring purchases",
         "Free Bitcoin withdrawals",
         "Lightning Network support",
@@ -2074,7 +2074,7 @@
       ],
       "cons": [
         "Higher spread than large exchanges",
-        "Bitcoin only — no altcoins",
+        "Bitcoin only \u2014 no altcoins",
         "Newer company (2019)",
         "Limited insurance information",
         "Single custodian risk"
@@ -2159,9 +2159,9 @@
       "cons": [
         "Limited security disclosures",
         "No insurance information public",
-        "Bitcoin only — no altcoins",
+        "Bitcoin only \u2014 no altcoins",
         "Newer company",
-        "Payment-focused — limited custody features"
+        "Payment-focused \u2014 limited custody features"
       ],
       "targetAudience": [
         "Lightning Network users",
@@ -2207,7 +2207,7 @@
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "United States",
-        "details": "Block Inc. (NYSE: SQ) — publicly traded fintech company."
+        "details": "Block Inc. (NYSE: SQ) \u2014 publicly traded fintech company."
       },
       "security": {
         "keyManagementType": "Block Inc. managed custody",
@@ -2235,7 +2235,7 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "Most accessible Bitcoin on-ramp — 50M+ users",
+        "Most accessible Bitcoin on-ramp \u2014 50M+ users",
         "Free Bitcoin withdrawals",
         "Publicly traded parent (Block/SQ)",
         "Lightning Network support",
@@ -2324,7 +2324,7 @@
       "pros": [
         "Commission-free crypto trading",
         "Crypto alongside stock portfolio",
-        "Publicly traded — transparent",
+        "Publicly traded \u2014 transparent",
         "23M+ funded accounts",
         "Crypto wallets now support withdrawals"
       ],
@@ -2366,7 +2366,7 @@
         "custodyAnnual": "None",
         "transaction": "0.12-0.18% tiered",
         "withdrawal": "Not available (no crypto transfers out)",
-        "notes": "Among lowest crypto trading fees. But no crypto withdrawals — must sell to withdraw."
+        "notes": "Among lowest crypto trading fees. But no crypto withdrawals \u2014 must sell to withdraw."
       },
       "insurance": {
         "coverage": "SIPC up to $500K for securities (NOT crypto)",
@@ -2410,17 +2410,17 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "45+ year track record — most established broker",
+        "45+ year track record \u2014 most established broker",
         "Lowest crypto trading fees (0.12-0.18%)",
         "Crypto alongside stocks/bonds/options",
         "Institutional-grade platform",
         "Global regulatory compliance"
       ],
       "cons": [
-        "Cannot withdraw crypto — must sell",
+        "Cannot withdraw crypto \u2014 must sell",
         "Limited crypto asset selection",
         "Crypto not SIPC insured",
-        "Complex platform — not beginner-friendly",
+        "Complex platform \u2014 not beginner-friendly",
         "Crypto is secondary to traditional assets"
       ],
       "targetAudience": [
@@ -2443,7 +2443,7 @@
       "headquarters": "London, UK",
       "custodyType": "qualified-custodian",
       "custodyTypeLabel": "Qualified Custodian",
-      "description": "Copper provides institutional digital asset custody using MPC technology. Known for ClearLoop — enabling off-exchange trading while assets remain in custody. Serves major institutions globally.",
+      "description": "Copper provides institutional digital asset custody using MPC technology. Known for ClearLoop \u2014 enabling off-exchange trading while assets remain in custody. Serves major institutions globally.",
       "supportedAssets": [
         "Bitcoin",
         "Ethereum",
@@ -2495,8 +2495,8 @@
         "counterpartyDiversification": 3
       },
       "pros": [
-        "ClearLoop — trade without moving assets to exchange",
-        "MPC technology — no single point of failure",
+        "ClearLoop \u2014 trade without moving assets to exchange",
+        "MPC technology \u2014 no single point of failure",
         "SOC 2 Type 2 certified",
         "Institutional-grade service",
         "Growing rapidly in institutional market"
@@ -2505,7 +2505,7 @@
         "Full regulatory status still pending",
         "Opaque pricing",
         "Institutional only",
-        "UK-focused — less US presence",
+        "UK-focused \u2014 less US presence",
         "Single custodian model"
       ],
       "targetAudience": [
@@ -2580,7 +2580,7 @@
         "counterpartyDiversification": 3
       },
       "pros": [
-        "Backed by Standard Chartered — tier-1 bank pedigree",
+        "Backed by Standard Chartered \u2014 tier-1 bank pedigree",
         "Northern Trust partnership",
         "FCA registered",
         "SOC 2 Type 2 certified",
@@ -2588,7 +2588,7 @@
       ],
       "cons": [
         "Newer company (2020)",
-        "Institutional only — high minimums",
+        "Institutional only \u2014 high minimums",
         "Opaque pricing",
         "Limited public information",
         "Dependent on parent company strategy"
@@ -2673,7 +2673,7 @@
         "Bank-grade infrastructure"
       ],
       "cons": [
-        "APAC focused — less Western presence",
+        "APAC focused \u2014 less Western presence",
         "Newer company",
         "Institutional only",
         "Opaque pricing",
@@ -2715,7 +2715,7 @@
       "insurance": {
         "coverage": "Institutional coverage",
         "carrier": "Via Nomura/partners",
-        "details": "Backed by Nomura — Japan's largest investment bank."
+        "details": "Backed by Nomura \u2014 Japan's largest investment bank."
       },
       "regulatory": {
         "licenses": [
@@ -2751,7 +2751,7 @@
         "counterpartyDiversification": 3.5
       },
       "pros": [
-        "Nomura backing — tier-1 investment bank",
+        "Nomura backing \u2014 tier-1 investment bank",
         "Ledger's proven hardware security",
         "CoinShares' crypto market expertise",
         "Strong Asia/Europe presence",
@@ -2759,7 +2759,7 @@
       ],
       "cons": [
         "Limited public information",
-        "Institutional only — very high minimums",
+        "Institutional only \u2014 very high minimums",
         "Completely opaque pricing",
         "Newer operation",
         "Dependent on three parent companies aligning"
@@ -2798,7 +2798,7 @@
         "notes": "Enterprise custody infrastructure. B2B SaaS model."
       },
       "insurance": {
-        "coverage": "N/A — infrastructure provider",
+        "coverage": "N/A \u2014 infrastructure provider",
         "carrier": "N/A",
         "details": "Institutions using Ledger Enterprise arrange their own insurance."
       },
@@ -2836,7 +2836,7 @@
         "counterpartyDiversification": 4
       },
       "pros": [
-        "Ledger brand — trusted hardware security heritage",
+        "Ledger brand \u2014 trusted hardware security heritage",
         "Enterprise MPC technology",
         "SOC 2 Type 2 certified",
         "1,800+ asset support",
@@ -2844,7 +2844,7 @@
       ],
       "cons": [
         "Technology provider, not custodian",
-        "Enterprise-only — no retail",
+        "Enterprise-only \u2014 no retail",
         "Opaque pricing",
         "Separate from consumer Ledger",
         "Requires institutional integration"
@@ -2881,7 +2881,7 @@
         "notes": "Premium includes server-assisted keys and inheritance planning."
       },
       "insurance": {
-        "coverage": "Limited — collaborative custody model",
+        "coverage": "Limited \u2014 collaborative custody model",
         "carrier": "N/A",
         "details": "Users hold their own keys. Nunchuk assists but doesn't insure."
       },
@@ -2891,7 +2891,7 @@
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Canada",
-        "details": "Canadian company. Not a custodian — provides wallet software."
+        "details": "Canadian company. Not a custodian \u2014 provides wallet software."
       },
       "security": {
         "keyManagementType": "Collaborative multisig wallet",
@@ -2919,7 +2919,7 @@
         "counterpartyDiversification": 7
       },
       "pros": [
-        "Excellent multisig UX — genuinely easy",
+        "Excellent multisig UX \u2014 genuinely easy",
         "Flexible key configurations",
         "Inheritance planning built-in",
         "Taproot multisig support",
@@ -2928,7 +2928,7 @@
       "cons": [
         "Bitcoin only",
         "Newer company",
-        "Not a custodian — software only",
+        "Not a custodian \u2014 software only",
         "Premium features require subscription",
         "Smaller community than Unchained/Casa"
       ],
@@ -2964,13 +2964,13 @@
         "notes": "Completely free and open-source. No account needed."
       },
       "insurance": {
-        "coverage": "None — self-custody software",
+        "coverage": "None \u2014 self-custody software",
         "carrier": "N/A",
         "details": "Software wallet. No insurance. Full user responsibility."
       },
       "regulatory": {
         "licenses": [
-          "N/A — open-source software"
+          "N/A \u2014 open-source software"
         ],
         "qualifiedCustodian": false,
         "jurisdiction": "Decentralized",
@@ -3009,11 +3009,11 @@
         "Completely free and open-source"
       ],
       "cons": [
-        "Desktop only — no mobile app",
+        "Desktop only \u2014 no mobile app",
         "Requires technical knowledge",
         "No company support",
         "Not beginner-friendly",
-        "Software-only — needs hardware wallet for cold storage"
+        "Software-only \u2014 needs hardware wallet for cold storage"
       ],
       "targetAudience": [
         "Privacy advocates",
@@ -3094,7 +3094,7 @@
       ],
       "cons": [
         "Higher fees than large exchanges",
-        "Bitcoin only — no altcoins",
+        "Bitcoin only \u2014 no altcoins",
         "Dependent on custody partners",
         "Newer company",
         "Limited trading features"
@@ -3153,7 +3153,7 @@
       },
       "features": [
         "Largest Bitcoin ETF by AUM",
-        "BlackRock — world's largest asset manager",
+        "BlackRock \u2014 world's largest asset manager",
         "Coinbase Custody for underlying BTC",
         "Trades on Nasdaq like a stock",
         "Available in retirement accounts",
@@ -3170,11 +3170,11 @@
         "counterpartyDiversification": 2
       },
       "pros": [
-        "BlackRock — world's most trusted asset manager",
-        "Largest Bitcoin ETF — maximum liquidity",
+        "BlackRock \u2014 world's most trusted asset manager",
+        "Largest Bitcoin ETF \u2014 maximum liquidity",
         "Available in IRAs and 401(k)s",
-        "0.25% expense ratio — competitive",
-        "SEC regulated — maximum compliance"
+        "0.25% expense ratio \u2014 competitive",
+        "SEC regulated \u2014 maximum compliance"
       ],
       "cons": [
         "No direct Bitcoin ownership",
@@ -3236,8 +3236,8 @@
         "incidentHistory": "No incidents"
       },
       "features": [
-        "Self-custodied — no third-party custodian",
-        "Fidelity — $14T+ AUM parent",
+        "Self-custodied \u2014 no third-party custodian",
+        "Fidelity \u2014 $14T+ AUM parent",
         "Second-largest Bitcoin ETF",
         "Up to $1B insurance on custody",
         "Available in Fidelity retirement accounts",
@@ -3254,8 +3254,8 @@
         "counterpartyDiversification": 2.5
       },
       "pros": [
-        "Self-custodied — only major ETF not using third-party",
-        "Fidelity — $14T+ AUM parent company",
+        "Self-custodied \u2014 only major ETF not using third-party",
+        "Fidelity \u2014 $14T+ AUM parent company",
         "Up to $1B insurance on underlying Bitcoin",
         "Available in Fidelity retirement accounts",
         "Eliminates third-party custodian risk"

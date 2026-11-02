@@ -5,10 +5,10 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Bitcoin Custody Comparison — Independent Reviews & Scores',
+    default: 'Bitcoin Custody Comparison — Published Scores, Every Provider on the Same Rules',
     template: '%s | CustodyCompare',
   },
-  description: 'Compare every Bitcoin custody solution. Independent reviews, transparent Custody Scores, and head-to-head comparisons across 30+ providers.',
+  description: 'Compare every Bitcoin custody solution. Published Custody Scores on one methodology, operated by the team behind Onramp Bitcoin, and head-to-head comparisons across 30+ providers.',
   openGraph: {
     type: 'website',
     siteName: 'CustodyCompare',

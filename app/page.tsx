@@ -112,7 +112,7 @@ export default function HomePage() {
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-text-body sm:text-xl">
-              Independent reviews, transparent scoring, zero bias. Find the custody setup that fits your security needs and risk tolerance.
+              Published scoring methodology, every provider on the same rules. Operated by the team behind Onramp Bitcoin, which is scored here like everyone else. Find the custody setup that fits your security needs and risk tolerance.
             </p>
 
             {/* Inline email capture */}

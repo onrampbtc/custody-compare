@@ -20,7 +20,7 @@ export async function generateMetadata({
 
   return {
     title: `${custodyType.name} Bitcoin Custody — Reviews & Rankings`,
-    description: `Compare the best ${custodyType.name.toLowerCase()} Bitcoin custody providers. Independent reviews, Custody Scores, pros & cons, and side-by-side rankings.`,
+    description: `Compare the best ${custodyType.name.toLowerCase()} Bitcoin custody providers. Published scores on one methodology, Custody Scores, pros & cons, and side-by-side rankings.`,
   }
 }
 

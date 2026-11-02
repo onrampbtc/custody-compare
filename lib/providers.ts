@@ -64,6 +64,7 @@ export interface Provider {
   scores: CustodyScores
   pros: string[]
   cons: string[]
+  disclosure?: string
   competitorComparisons?: Record<string, string>
 }
 

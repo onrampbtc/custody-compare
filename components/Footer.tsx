@@ -22,7 +22,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-gray-500">
-              Independent Bitcoin custody comparison. Transparent scoring methodology. Zero bias.
+              Bitcoin custody comparison with a published scoring methodology. CustodyCompare is operated by the team behind Onramp Bitcoin, one of the custodians scored on this site; Onramp is scored by the same rules as every other provider.
             </p>
           </div>
 
