@@ -1,4 +1,4 @@
-import { getCustodyTypes, getCustodyType, getProvidersByType } from '@/lib/providers'
+import { getCustodyTypes, getCustodyType, getProvidersByType, getMeta } from '@/lib/providers'
 import { rankProviders, calculateCustodyScore } from '@/lib/scoring'
 import { breadcrumbSchema } from '@/lib/seo'
 import CustodyScoreBadge from '@/components/CustodyScoreBadge'
@@ -26,32 +26,32 @@ export async function generateMetadata({
 
 const RELATED_GUIDES: Record<string, { slug: string; title: string; desc: string }[]> = {
   'multi-institution': [
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
   ],
   'self-custody': [
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
   ],
   'exchange-custody': [
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
   ],
   'qualified-custodian': [
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
   ],
   'cold-storage': [
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
   ],
   'collaborative-custody': [
-    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+    { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
     { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
     { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
   ],
@@ -60,7 +60,7 @@ const RELATED_GUIDES: Record<string, { slug: string; title: string; desc: string
 const DEFAULT_GUIDES = [
   { slug: 'what-is-bitcoin-custody', title: 'What is Bitcoin Custody?', desc: 'Everything you need to know about securing your Bitcoin.' },
   { slug: 'how-to-choose-a-custodian', title: 'How to Choose a Custodian', desc: 'A framework for evaluating custody providers across security, insurance, fees, and compliance.' },
-  { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'Why distributing assets across multiple custodians eliminates single points of failure.' },
+  { slug: 'multi-institution-custody-explained', title: 'Multi-Institution Custody Explained', desc: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.' },
 ]
 
 export default async function CustodyTypePage({
@@ -135,6 +135,11 @@ export default async function CustodyTypePage({
           <p className="mt-6 text-lg leading-relaxed text-gray-400">
             {custodyType.longDescription}
           </p>
+          {custodyType.longDescription.includes('Onramp') && getMeta().disclosure && (
+            <p className="mt-4 text-sm leading-relaxed text-gray-500">
+              Disclosure: {getMeta().disclosure}
+            </p>
+          )}
         </div>
       </section>
 

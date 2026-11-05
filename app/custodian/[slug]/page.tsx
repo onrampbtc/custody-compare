@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getProviders, getProvider, getProvidersByType, Provider, CustodyScores } from '@/lib/providers'
+import { getProviders, getProvider, getProvidersByType, Provider, CustodyScores, tidy, penTestLabel } from '@/lib/providers'
 import {
   calculateCustodyScore,
   getScoreColor,
@@ -41,11 +41,11 @@ function generateFaqs(provider: Provider) {
   const faqs: { question: string; answer: string }[] = [
     {
       question: `Is ${provider.name} safe for Bitcoin custody?`,
-      answer: `${provider.name} has a Custody Score of ${score}/10 (${label}). It uses ${provider.security.keyManagementType} key management with ${provider.security.coldStoragePercent} cold storage and holds ${provider.security.socCompliance} compliance.`,
+      answer: `${provider.name} has a Custody Score of ${score}/10 (${label}). Key management: ${tidy(provider.security.keyManagementType)}. Cold storage: ${tidy(provider.security.coldStoragePercent)}. Compliance: ${tidy(provider.security.socCompliance)}.`,
     },
     {
       question: `What are ${provider.name} custody fees?`,
-      answer: `${provider.name} charges ${provider.fees.custodyAnnual} annual custody fee with ${provider.fees.transaction} per transaction. Setup fee is ${provider.fees.setup}. ${provider.fees.notes}`,
+      answer: `${provider.name} custody fees: ${tidy(provider.fees.custodyAnnual)}. Transaction fees: ${tidy(provider.fees.transaction)}. Setup fee: ${tidy(provider.fees.setup)}. ${provider.fees.notes}`,
     },
     {
       question: `Is ${provider.name} a qualified custodian?`,
@@ -369,7 +369,7 @@ export default async function CustodianPage({
                 Penetration Testing
               </p>
               <p className="mt-1 text-lg font-bold text-text-heading">
-                {provider.security.penetrationTesting ? 'Yes' : 'No'}
+                {penTestLabel(provider.security.penetrationTesting)}
               </p>
             </div>
           </div>

@@ -5,7 +5,7 @@
     "scoringVersion": "1.0",
     "totalProviders": 36,
     "notes": "Fees and details should be verified directly with each provider before publishing. Data sourced from public websites, documentation, and third-party reviews as of Feb 2026.",
-    "operatedBy": "The team behind Onramp Bitcoin, one of the custodians scored on this site",
+    "operatedBy": "The team behind Onramp Bitcoin, one of the providers scored on this site",
     "disclosure": "CustodyCompare is operated by the team behind Onramp Bitcoin, which is scored here by the same published methodology as every other provider."
   },
   "scoringWeights": {
@@ -22,22 +22,24 @@
     {
       "id": "multi-institution",
       "name": "Multi-Institution Custody",
-      "shortDescription": "Bitcoin keys and assets distributed across multiple independent regulated custodians, eliminating single points of failure.",
-      "longDescription": "Multi-institution custody distributes your Bitcoin across multiple independent, regulated custodians rather than trusting a single entity. If one custodian is compromised, hacked, or fails, your assets remain safe with the others. This model emerged after high-profile failures like FTX and Celsius demonstrated the catastrophic risk of single-custodian dependence.",
+      "shortDescription": "Several independent institutions protect each vault, and it takes more than one of them to move the bitcoin, eliminating single points of failure.",
+      "longDescription": "Multi-institution custody protects your bitcoin with several independent institutions instead of one. With Onramp, three institutions (Onramp, BitGo, and CoinCover) protect each client's vault, and it takes two of the three to move the bitcoin. No one of them can lose it, move it, or use it, and nothing moves without your permission. If one institution fails, is hacked, or goes out of business, your bitcoin stays protected, because the other two still make up the quorum. The model emerged after failures like FTX and Celsius showed the risk of depending on a single custodian.",
       "bestFor": [
         "Family offices",
         "Institutions",
         "HNW individuals",
-        "Anyone who experienced FTX/Celsius losses"
+        "Anyone who experienced FTX/Celsius losses",
+        "IRA savers",
+        "Families planning inheritance"
       ],
       "pros": [
         "Eliminates single point of failure",
         "Multiple layers of regulatory oversight",
-        "Institutional-grade insurance across custodians",
+        "No single institution can lose, move, or use client bitcoin",
         "No single entity can freeze all assets"
       ],
       "cons": [
-        "Higher minimum AUM typically required",
+        "Minimums vary by provider (Onramp has none)",
         "Slightly more complex onboarding",
         "Fewer providers in this category",
         "May have higher all-in fees than single custodian"
@@ -224,25 +226,25 @@
       "headquarters": "Austin, TX",
       "custodyType": "multi-institution",
       "custodyTypeLabel": "Multi-Institution Custody",
-      "description": "Onramp Bitcoin offers Multi-Institution Custody for individuals, IRAs and businesses. Three institutions protect each vault; no one of them can lose it, move it, or use it, and nothing moves without the client's permission. Onramp also offers a free Finance tier with buying, selling and bitcoin-backed loans. Facts below are from onrampbitcoin.com as of 1 Nov 2026.",
+      "description": "Onramp Bitcoin offers Multi-Institution Custody for individuals, IRAs and businesses. Three institutions protect each vault; no one of them can lose it, move it, or use it, and nothing moves without the client's permission. Onramp also offers a free Finance tier with buying, selling and bitcoin-backed loans. Facts below are from onrampbitcoin.com as of 5 Nov 2026.",
       "targetAudience": [
         "Family offices",
         "RIAs",
         "HNW individuals",
         "Institutions"
       ],
-      "aum": "Billions in client bitcoin, per onrampbitcoin.com (Nov 2026)",
+      "aum": "$1B+ in bitcoin under Multi-Institution Custody",
       "minAccount": "No stated minimum. Core tier from $250/month; Private from 0.04%/month; Business $375/month plus $500 setup; Finance $0 (onrampbitcoin.com/pricing, 1 Nov 2026)",
       "supportedAssets": [
         "Bitcoin"
       ],
-      "keyManagement": "Multi-Institution Custody: each vault is protected by three independent institutions drawn from a network of four (Onramp, BitGo Trust, CoinCover, Tetra Trust). Individual and IRA vaults use Onramp, BitGo Trust and CoinCover; business vaults use Onramp, Tetra Trust and CoinCover. It takes two of the three institutions to move bitcoin, and the client never handles a key, seed phrase or hardware wallet.",
+      "keyManagement": "Multi-Institution Custody: each vault is protected by three independent institutions drawn from a network of four (Onramp, BitGo, CoinCover, Tetra Trust). Individual and IRA vaults use Onramp, BitGo and CoinCover; business vaults use Onramp, Tetra Trust and CoinCover. It takes two of the three institutions to move bitcoin, and the client never handles a key, seed phrase or hardware wallet.",
       "fees": {
         "setup": "$0 for individual tiers; $500 for Business",
-        "custodyAnnual": "Core $250/month ($3,000/year); Private from 0.04%/month; Business $375/month; Finance $0",
-        "transaction": "Tiered trade fees; see onrampbitcoin.com/pricing",
-        "withdrawal": "Not published as a separate fee",
-        "notes": "IRA available as an add-on at $100/month. Pricing as of 1 Nov 2026; verify on onrampbitcoin.com/pricing."
+        "custodyAnnual": "Core $250/month or $2,400/year; Private from 0.04%/month; Business $375/month; Finance $0",
+        "transaction": "One-time buys 0.85% (Core 0.65%, Private 0.32%). Recurring buys have no fee after the first purchase.",
+        "withdrawal": "No Onramp withdrawal fee; bitcoin network fee only.",
+        "notes": "IRA available as an add-on at $100/month. Pricing as of 5 Nov 2026; verify on onrampbitcoin.com/pricing."
       },
       "insurance": {
         "coverage": "Up to $50 million in aggregate across Onramp's custody operations",
@@ -253,11 +255,11 @@
         "licenses": [],
         "qualifiedCustodian": false,
         "jurisdiction": "United States",
-        "details": "Onramp is not itself a qualified custodian. The regulated keyholders in the arrangement are BitGo Trust Company (South Dakota-chartered trust company) and Tetra Trust (Canada); CoinCover is the third institution."
+        "details": "Onramp is not itself a qualified custodian. Individual and IRA vaults: Onramp, BitGo, and CoinCover. Business vaults: Onramp, Tetra Trust, and CoinCover. BitGo Bank & Trust is a federally chartered trust bank."
       },
       "security": {
         "keyManagementType": "Multi-institution, two of three institutions to move funds",
-        "coldStoragePercent": "Not published",
+        "coldStoragePercent": "All three keys are secured offline.",
         "socCompliance": "Onramp states SOC 2 Type I compliance (onrampbitcoin.com, Nov 2026)",
         "penetrationTesting": "Not published",
         "incidentHistory": "None recorded in the Proof of Custody failure registry as of 1 Nov 2026"
@@ -294,11 +296,11 @@
         "The operator of this comparison site is the team behind Onramp; see the disclosure"
       ],
       "competitorComparisons": {
-        "bitgo": "Onramp uses BitGo as one of multiple custodians, while BitGo acts as a single custodian. Onramp adds diversification layer.",
-        "coinbase-custody": "Coinbase Custody is one institution. Onramp distributes across Coinbase AND others, eliminating single-custodian risk.",
+        "bitgo": "BitGo on its own is a single custodian. In an Onramp individual or IRA vault, BitGo is one of three institutions, and it takes two of the three to move bitcoin.",
+        "coinbase-custody": "Coinbase Custody is a single custodian. An Onramp vault needs two of three independent institutions (Onramp, BitGo, CoinCover) to move bitcoin. Coinbase is not one of them.",
         "unchained": "Unchained is collaborative 2-of-3 multisig where you hold keys. Onramp is institutional multi-custodian \u2014 different model for different users."
       },
-      "disclosure": "CustodyCompare is operated by the team behind Onramp Bitcoin. Onramp is scored on this site by the same published methodology as every other provider, and this record was corrected on 1 Nov 2026 against onrampbitcoin.com."
+      "disclosure": "CustodyCompare is operated by the team behind Onramp Bitcoin. Onramp is scored on this site by the same published methodology as every other provider, and this record was corrected on 1 Nov 2026 and re-checked on 5 Nov 2026 against onrampbitcoin.com."
     },
     {
       "id": "bitgo",

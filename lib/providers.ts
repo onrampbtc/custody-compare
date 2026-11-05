@@ -25,7 +25,7 @@ export interface Security {
   keyManagementType: string
   coldStoragePercent: string
   socCompliance: string
-  penetrationTesting: boolean
+  penetrationTesting: boolean | string
   incidentHistory: string
 }
 
@@ -90,7 +90,7 @@ export interface ScoringWeights {
 }
 
 const data = providersData as {
-  meta: { version: string; lastUpdated: string; scoringVersion: string; totalProviders: number; notes: string }
+  meta: { version: string; lastUpdated: string; scoringVersion: string; totalProviders: number; notes: string; operatedBy?: string; disclosure?: string }
   scoringWeights: ScoringWeights
   custodyTypes: CustodyType[]
   providers: Provider[]
@@ -122,4 +122,15 @@ export function getScoringWeights(): ScoringWeights {
 
 export function getMeta() {
   return data.meta
+}
+
+/** Field values are free text; trim trailing punctuation so they can sit inside a sentence. */
+export function tidy(value: string): string {
+  return value.trim().replace(/[.;\s]+$/, '')
+}
+
+/** Penetration testing is a boolean for most records and a stated note ("Not published") for some. */
+export function penTestLabel(value: boolean | string): string {
+  if (typeof value === 'string') return value
+  return value ? 'Yes' : 'No'
 }

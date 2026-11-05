@@ -1,5 +1,5 @@
 import { getAllComparisonPairs, getComparisonPair } from '@/lib/comparisons'
-import { getProviders, getProvider } from '@/lib/providers'
+import { getProviders, getProvider, tidy, penTestLabel } from '@/lib/providers'
 import {
   calculateCustodyScore,
   SCORE_CRITERIA,
@@ -98,7 +98,7 @@ export default async function ComparisonPage({
     },
     {
       question: `How do ${providerA.name} and ${providerB.name} fees compare?`,
-      answer: `${providerA.name} charges ${providerA.fees.custodyAnnual} annual custody fees with ${providerA.fees.transaction} transaction fees. ${providerB.name} charges ${providerB.fees.custodyAnnual} annual custody fees with ${providerB.fees.transaction} transaction fees.`,
+      answer: `${providerA.name} custody fees: ${tidy(providerA.fees.custodyAnnual)}. Transaction fees: ${tidy(providerA.fees.transaction)}. ${providerB.name} custody fees: ${tidy(providerB.fees.custodyAnnual)}. Transaction fees: ${tidy(providerB.fees.transaction)}.`,
     },
     {
       question: `Which is more secure, ${providerA.name} or ${providerB.name}?`,
@@ -275,24 +275,18 @@ export default async function ComparisonPage({
                 </h3>
               </div>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerA.name} uses {providerA.security.keyManagementType} key
-                management with {providerA.security.coldStoragePercent} in cold
-                storage and{' '}
-                {providerA.security.penetrationTesting
-                  ? 'regular penetration testing'
-                  : 'no confirmed penetration testing'}
-                . Compliance: {providerA.security.socCompliance}. Incident
-                history: {providerA.security.incidentHistory}.
+                {providerA.name} key management: {tidy(providerA.security.keyManagementType)}.
+                Cold storage: {tidy(providerA.security.coldStoragePercent)}.
+                Penetration testing: {penTestLabel(providerA.security.penetrationTesting)}.
+                Compliance: {tidy(providerA.security.socCompliance)}. Incident
+                history: {tidy(providerA.security.incidentHistory)}.
               </p>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerB.name} uses {providerB.security.keyManagementType} key
-                management with {providerB.security.coldStoragePercent} in cold
-                storage and{' '}
-                {providerB.security.penetrationTesting
-                  ? 'regular penetration testing'
-                  : 'no confirmed penetration testing'}
-                . Compliance: {providerB.security.socCompliance}. Incident
-                history: {providerB.security.incidentHistory}.
+                {providerB.name} key management: {tidy(providerB.security.keyManagementType)}.
+                Cold storage: {tidy(providerB.security.coldStoragePercent)}.
+                Penetration testing: {penTestLabel(providerB.security.penetrationTesting)}.
+                Compliance: {tidy(providerB.security.socCompliance)}. Incident
+                history: {tidy(providerB.security.incidentHistory)}.
               </p>
             </div>
 
@@ -362,14 +356,12 @@ export default async function ComparisonPage({
                 </h3>
               </div>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerA.name} charges {providerA.fees.custodyAnnual} in
-                annual custody fees with {providerA.fees.transaction} per
-                transaction. {providerA.fees.notes}
+                {providerA.name} custody fees: {tidy(providerA.fees.custodyAnnual)}.
+                Transaction fees: {tidy(providerA.fees.transaction)}. {providerA.fees.notes}
               </p>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerB.name} charges {providerB.fees.custodyAnnual} in
-                annual custody fees with {providerB.fees.transaction} per
-                transaction. {providerB.fees.notes}
+                {providerB.name} custody fees: {tidy(providerB.fees.custodyAnnual)}.
+                Transaction fees: {tidy(providerB.fees.transaction)}. {providerB.fees.notes}
               </p>
             </div>
 
@@ -410,13 +402,13 @@ export default async function ComparisonPage({
                 </h3>
               </div>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerA.name} withdrawal fees: {providerA.fees.withdrawal}.
-                Minimum account: {providerA.minAccount}. Supported assets:{' '}
+                {providerA.name} withdrawal fees: {tidy(providerA.fees.withdrawal)}.
+                Minimum account: {tidy(providerA.minAccount)}. Supported assets:{' '}
                 {providerA.supportedAssets.join(', ')}.
               </p>
               <p className="mt-2 leading-relaxed text-text-body">
-                {providerB.name} withdrawal fees: {providerB.fees.withdrawal}.
-                Minimum account: {providerB.minAccount}. Supported assets:{' '}
+                {providerB.name} withdrawal fees: {tidy(providerB.fees.withdrawal)}.
+                Minimum account: {tidy(providerB.minAccount)}. Supported assets:{' '}
                 {providerB.supportedAssets.join(', ')}.
               </p>
             </div>

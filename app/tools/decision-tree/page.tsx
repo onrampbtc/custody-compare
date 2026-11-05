@@ -84,7 +84,7 @@ const TREE_NODES: TreeNode[] = [
 ]
 
 const RESULTS: ResultNode[] = [
-  { id: 'result-multi-institution', custodyType: 'multi-institution', typeName: 'Multi-Institution Custody', reason: 'Distributes your Bitcoin across multiple independent custodians so no single entity can compromise your holdings.' },
+  { id: 'result-multi-institution', custodyType: 'multi-institution', typeName: 'Multi-Institution Custody', reason: 'Several independent institutions protect one vault, and it takes more than one of them to move the bitcoin, so no single entity can compromise your holdings.' },
   { id: 'result-self-custody', custodyType: 'self-custody', typeName: 'Self-Custody / Multisig', reason: 'You hold all the keys. Maximum sovereignty for technically capable holders.' },
   { id: 'result-exchange', custodyType: 'exchange-custody', typeName: 'Exchange Custody', reason: 'Simplest option for smaller amounts. Consider moving to self-custody or collaborative custody as holdings grow.' },
   { id: 'result-qualified', custodyType: 'qualified-custodian', typeName: 'Qualified Custodian', reason: 'Regulated institutional custody with insurance, compliance, and audit trails.' },

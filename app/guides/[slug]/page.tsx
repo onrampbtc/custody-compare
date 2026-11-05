@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { getProviders } from '@/lib/providers'
+import { getProviders, getMeta } from '@/lib/providers'
 import { rankProviders } from '@/lib/scoring'
 import EmailCapture from '@/components/EmailCapture'
 import { breadcrumbSchema } from '@/lib/seo'
@@ -28,7 +28,7 @@ When you buy Bitcoin on an exchange, the exchange holds the private keys. This m
 
 There are six main approaches to Bitcoin custody, each with different tradeoffs between security, convenience, and control:
 
-**Multi-Institution Custody** distributes your Bitcoin across multiple independent custodians. No single entity can compromise your holdings. This is the most resilient institutional model.
+**Multi-Institution Custody** protects one vault with several independent institutions, and it takes more than one of them to move the bitcoin. No single entity can compromise your holdings. This is the most resilient institutional model.
 
 **Self-Custody** means you hold your own private keys, typically using hardware wallets and multisignature setups. Maximum sovereignty, maximum responsibility.
 
@@ -83,8 +83,8 @@ We evaluate every custodian across eight weighted criteria:
   {
     slug: 'multi-institution-custody-explained',
     title: 'Multi-Institution Custody Explained',
-    description: 'Why distributing assets across multiple custodians eliminates single points of failure.',
-    content: `Multi-institution custody is the practice of distributing your Bitcoin across multiple independent, regulated custodians rather than trusting a single entity. It emerged as a direct response to catastrophic single-custodian failures.
+    description: 'How several independent institutions protect one vault, so no single institution can lose, move, or use your bitcoin.',
+    content: `Multi-institution custody protects your bitcoin with several independent institutions instead of one. It takes more than one of them to move the bitcoin, so no single institution can lose it, move it, or use it. It emerged as a direct response to catastrophic single-custodian failures.
 
 ## The Problem with Single Custodians
 
@@ -92,12 +92,17 @@ When all your Bitcoin sits with one custodian, you face concentrated risk. If th
 
 ## How Multi-Institution Custody Works
 
-Instead of depositing everything with one provider, multi-institution custody distributes your assets across multiple independent custodians. If one fails, the others remain unaffected. This is the same principle behind diversification in traditional finance.
+Multi-institution custody works like a bank vault that needs two keyholders to open: it takes two of the three institutions to move your bitcoin.
+
+Technically, it's a 2-of-3 multisig quorum. Each institution generates and secures its private key offline, through an institutional-grade key generation ceremony, never on a consumer device. You never hold a key, a seed phrase, or a hardware wallet.
+
+Your bitcoin isn't split among the institutions. It sits in one segregated vault on the bitcoin network, and you can verify it on-chain at any time. Nothing moves without your permission, and it takes two of the three institutions to move it.
+
+**Multi-institution vs collaborative custody.** In collaborative custody (Unchained, Casa), you hold most of the keys yourself and a company holds a backup. In multi-institution custody, independent institutions protect the vault and you hold none, so there's nothing to lose, back up, or pass on. Both models remove the single point of failure. The difference is who holds the keys.
 
 ## Key Benefits
 
-- **No single point of failure** — One custodian compromised doesn't mean total loss
-- **Aggregated insurance** — Combined coverage across custodians exceeds any single policy
+- **No single point of failure** — No one institution can lose, move, or use your bitcoin
 - **Regulatory diversification** — Multiple regulated entities across jurisdictions
 - **Reduced counterparty risk** — No single entity controls all your Bitcoin
 
@@ -125,7 +130,7 @@ Counterparty risk is the single greatest threat to your Bitcoin. Not hacking, no
 Post-FTX, the industry has shifted toward:
 - **Proof of reserves** — Verifiable evidence that custodians hold what they claim
 - **Segregated accounts** — Customer assets kept separate from company operations
-- **Multi-custodian models** — Distributing across multiple independent entities
+- **Multi-institution models** — Several independent institutions protect one vault, and more than one must sign to move bitcoin
 - **Self-custody growth** — Hardware wallet sales surged after FTX
 
 ## How to Protect Yourself
@@ -172,7 +177,7 @@ Family offices aren't day-trading. They're preserving wealth across generations.
 
 ## Multi-Institution Custody for Family Offices
 
-Multi-institution custody is increasingly popular among family offices because it eliminates single-custodian risk while maintaining institutional-grade compliance. Assets are distributed across multiple regulated custodians.
+Multi-institution custody is increasingly popular among family offices because it eliminates single-custodian risk while maintaining institutional-grade compliance. It takes two of three independent institutions to move client bitcoin, so no single institution can lose, move, or use it.
 
 ## Key Considerations
 
@@ -203,7 +208,7 @@ Not all Bitcoin custody providers are qualified custodians. Key qualified custod
 
 ## Multi-Institution Considerations
 
-Some RIAs are exploring multi-institution custody to reduce single-custodian risk for client assets. This approach distributes Bitcoin across multiple qualified custodians, aligning with fiduciary duty to minimize risk.
+Some RIAs are exploring multi-institution custody to reduce single-custodian risk for client assets. It takes two of three independent institutions to move client bitcoin, so no single institution can lose, move, or use it. That aligns with the fiduciary duty to minimize risk.
 
 ## Practical Steps for RIAs
 
@@ -236,9 +241,9 @@ Coverage varies dramatically across providers. Some examples: BitGo carries a $2
 - Who is the insurance carrier?
 - Are there exclusions for certain types of loss?
 
-## Why Multi-Institution Custody Improves Insurance
+## Insurance in Multi-Institution Custody
 
-When Bitcoin is distributed across multiple custodians, insurance is aggregated. Each custodian's policy covers the portion they hold. Total coverage often exceeds what any single custodian offers.`,
+In multi-institution custody, bitcoin isn't divided among custodians, so policies don't add up portion by portion. Ask what each policy actually covers, whose bitcoin it covers, and whether the limit is per client or aggregate. Onramp, for example, maintains custody insurance through Canopius, a Lloyd's of London syndicate: up to $50M in aggregate coverage across its custody operations, and Onramp pays the premium.`,
     relatedTypes: ['qualified-custodian', 'multi-institution'],
   },
   {
@@ -309,11 +314,11 @@ RIAs with custody of client assets must use a qualified custodian. This is a reg
 
 ## Bitcoin Qualified Custodians
 
-Several Bitcoin custodians have achieved qualified custodian status: Fidelity Digital Assets (OCC national trust charter), Coinbase Custody (NY Trust Charter), Anchorage Digital (OCC national trust charter), BitGo Trust (SD Trust Charter), Gemini Custody (NY Trust Charter), and Bakkt Trust (NY Trust Charter).
+Several Bitcoin custodians have achieved qualified custodian status: Fidelity Digital Assets (OCC national trust charter), Coinbase Custody (NY Trust Charter), Anchorage Digital (OCC national trust charter), BitGo Bank & Trust (OCC national trust charter), Gemini Custody (NY Trust Charter), and Bakkt Trust (NY Trust Charter).
 
 ## Multi-Institution and Qualified Custodian Status
 
-Multi-institution custody providers like Onramp achieve qualified custodian status through their underlying custodian partnerships, with each custodian independently regulated.`,
+Onramp is a custody solution, not a custodian. One of the three institutions protecting each individual and IRA vault is BitGo Bank & Trust, a federally chartered trust bank and qualified custodian. Business vaults are protected by Onramp, Tetra Trust, and CoinCover.`,
     relatedTypes: ['qualified-custodian', 'multi-institution'],
   },
   {
@@ -394,6 +399,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
           <h1 className="text-3xl font-extrabold sm:text-4xl">{guide.title}</h1>
           <p className="mt-3 text-lg text-text-body">{guide.description}</p>
+          {guide.content.includes('Onramp') && getMeta().disclosure && (
+            <p className="mt-3 rounded-md border border-brand/30 bg-brand/5 px-3 py-2 text-xs leading-relaxed text-text-body">
+              <strong className="text-text-heading">Disclosure:</strong> {getMeta().disclosure}
+            </p>
+          )}
 
           <div className="prose prose-slate mt-10 max-w-none">
             {paragraphs.map((p, i) => {
